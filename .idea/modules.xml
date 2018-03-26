@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/CircuitSimulator.iml" filepath="$PROJECT_DIR$/CircuitSimulator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CircuitSimulator-BL/CircuitSimulator-BL.iml" filepath="$PROJECT_DIR$/CircuitSimulator-BL/CircuitSimulator-BL.iml" />
     </modules>
   </component>
 </project>
