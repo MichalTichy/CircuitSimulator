@@ -20,7 +20,7 @@ public class InputPort implements IPort{
     }
 
     public Boolean GetWhetherDataChanged(){
-        return currentData == previousData;
+        return !(currentData == previousData);
     }
 
     public IData Recieve(){
