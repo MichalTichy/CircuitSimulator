@@ -19,8 +19,8 @@ public class InputPort implements IPort{
         throw new NotImplementedException(); //TODO
     }
 
-    public Boolean GetWheterDataChanged(){
-        throw new NotImplementedException(); //TODO
+    public Boolean GetWhetherDataChanged(){
+        return currentData == previousData;
     }
 
     public IData Recieve(){
