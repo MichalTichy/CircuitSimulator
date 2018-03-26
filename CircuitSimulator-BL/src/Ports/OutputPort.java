@@ -3,13 +3,14 @@ package Ports;
 import Data.IData;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
-public class OutputPort implements IPort{
-    public void Connect(InputPort port){
-        throw new NotImplementedException(); //todo
-    }
+public class OutputPort extends PortBase{
+    private IData currentData;
+    private IData previousData;
 
-    public void Disconnect(){
-        throw new NotImplementedException(); //TODO
+    @Override
+    public void Connect(IPort port) {
+        if(port instanceof OutputPort) ;    //TODO exception
+        super.Connect(port);
     }
 
     public void Send(IData data){

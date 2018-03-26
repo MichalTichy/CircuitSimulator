@@ -1,7 +1,6 @@
 package Ports;
 
-import Blocks.IBlock;
-import Data.DataType;
-
 public interface IPort {
+    void Connect(IPort port);
+    void Disconnect();
 }
