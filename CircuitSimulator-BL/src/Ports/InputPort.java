@@ -6,13 +6,14 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 public class InputPort implements IPort{
     private IData currentData;
     private IData previousData;
+    private IPort connectedTo;
 
     public void SetData(IData data) {
         this.currentData = data;
     }
 
     public void Connect(OutputPort port){
-        throw new NotImplementedException(); //todo
+        connectedTo=port;
     }
 
     public void Disconnect(){
@@ -24,6 +25,9 @@ public class InputPort implements IPort{
     }
 
     public IData Recieve(){
-        throw new NotImplementedException(); //TODO
+        previousData=currentData;
+        return currentData;
     }
+
+
 }
