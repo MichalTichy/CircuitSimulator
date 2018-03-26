@@ -1,3 +1,6 @@
+package Ports;
+
+import Data.IData;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 public class InputPort implements IPort{

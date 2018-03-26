@@ -1,3 +1,5 @@
+package Blocks;
+
 import java.awt.geom.Point2D;
 
 public interface IBlock {
