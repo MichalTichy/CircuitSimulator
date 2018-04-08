@@ -13,7 +13,8 @@ public class InputPort extends PortBase{
 
     @Override
     public void Connect(IPort port) {
-        if(port instanceof InputPort) ;    //TODO exception
+        if(port instanceof InputPort)
+            throw new IllegalArgumentException("Its not possible to connect InputPort to InputPort.");
         super.Connect(port);
     }
 

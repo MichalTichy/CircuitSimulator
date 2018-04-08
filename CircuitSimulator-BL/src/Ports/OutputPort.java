@@ -9,7 +9,8 @@ public class OutputPort extends PortBase{
 
     @Override
     public void Connect(IPort port) {
-        if(port instanceof OutputPort) ;    //TODO exception
+        if(port instanceof OutputPort)
+            throw new IllegalArgumentException("Its not possible to connect OutputPort to OutputPort.");
         super.Connect(port);
     }
 
