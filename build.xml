@@ -1,0 +1,45 @@
+<project name="IJA" basedir=".">
+    <property name="sources" value="src"/>
+
+    <path id="src.path">
+        <pathelement location="CircuitSimulator-BL/src/Blocks"/>
+        <pathelement location="CircuitSimulator-BL/src/Common"/>
+        <pathelement location="CircuitSimulator-BL/src/Data"/>
+        <pathelement location="CircuitSimulator-BL/src/Ports"/>
+        <pathelement location="CircuitSimulator-BL/src/Workspace"/>
+    </path>
+
+    <path id="classpath.test">
+        <pathelement location="lib/junit-4.12.jar"/>
+        <pathelement location="lib/hamcrest-core-1.3.jar"/>
+        <pathelement location="build"/>
+    </path>
+
+    
+
+    <target name="compile" depends="clean">
+        <javac srcdir="CircuitSimulator-BL/src/Tests" destdir="build" includeantruntime="false">
+            <classpath refid="classpath.test"/>
+		<src refid="src.path"/>
+        </javac>
+    </target>
+
+    <target name="run">
+        <junit printsummary="on" haltonfailure="yes" fork="true">
+        <classpath>
+          <path refid="classpath.test"/>
+          <pathelement location="build"/>
+        </classpath>
+        <formatter type="brief" usefile="false" />
+        <batchtest>
+            <fileset dir="CircuitSimulator-BL/src" includes="**/*PortBaseTest.java" />
+        </batchtest>
+    </junit>
+    </target>
+            
+    <target name="clean">
+        <delete dir="build"/>
+        <mkdir dir="build"/>
+        <touch file="build/.gitkeep"/>
+    </target>
+</project>

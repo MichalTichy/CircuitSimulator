@@ -4,8 +4,6 @@ import Data.IData;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 public class OutputPort extends PortBase{
-    private IData currentData;
-    private IData previousData;
 
     @Override
     public void Connect(IPort port) {
@@ -15,7 +13,11 @@ public class OutputPort extends PortBase{
     }
 
     public void Send(IData data){
-        throw new NotImplementedException(); //TODO
+       if (connectedTo instanceof InputPort){
+           ((InputPort) connectedTo).ReceiveData(data);
+       }
+       else
+           throw new IllegalArgumentException("Port is not connected to input port!");
     }
 }
 

@@ -7,7 +7,7 @@ public class InputPort extends PortBase{
     private IData currentData;
     private IData previousData;
 
-    public void SetData(IData data) {
+    public void ReceiveData(IData data) {
         this.currentData = data;
     }
 
@@ -22,7 +22,7 @@ public class InputPort extends PortBase{
         return !(currentData == previousData);
     }
 
-    public IData Recieve(){
+    public IData DownloadData(){
         previousData=currentData;
         return currentData;
     }
