@@ -1,9 +1,10 @@
 package Ports;
 
+import Common.IValidatable;
 import Data.IData;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
-public abstract class InputPortBase extends PortBase{
+public abstract class InputPortBase extends PortBase implements IValidatable{
     private IData currentData;
     private IData previousData;
 
@@ -11,7 +12,8 @@ public abstract class InputPortBase extends PortBase{
         this.currentData = data;
     }
 
-    public Boolean GetWhetherDataChanged(){
+
+    public boolean GetWhetherDataChanged(){
         return !(currentData == previousData);
     }
 
@@ -20,5 +22,8 @@ public abstract class InputPortBase extends PortBase{
         return currentData;
     }
 
-
+    @Override
+    public boolean IsValid() {
+        return super.IsValid() && connectedTo instanceof OutputPortBase;
+    }
 }

@@ -16,8 +16,11 @@ public abstract class PortBase implements IPort {
         toDisconnect.Disconnect();
     }
 
-    @Override
     public boolean GetWhetherConnected() {
+        return connectedTo!=null;
+    }
+
+    public boolean IsValid(){
         return connectedTo!=null;
     }
 }

@@ -11,5 +11,10 @@ public abstract class OutputPortBase extends PortBase{
        else
            throw new IllegalArgumentException("Port is not connected to input port!");
     }
+
+    @Override
+    public boolean IsValid() {
+        return super.IsValid() && connectedTo instanceof InputPortBase;
+    }
 }
 
