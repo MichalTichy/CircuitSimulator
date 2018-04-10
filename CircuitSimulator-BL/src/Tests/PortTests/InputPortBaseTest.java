@@ -2,19 +2,19 @@ package Tests.PortTests;
 
 import Data.BooleanData;
 import Data.IData;
-import Ports.InputPort;
-import Ports.OutputPort;
+import Ports.InputBooleanPort;
+import Ports.InputPortBase;
+import Ports.OutputBooleanPort;
+import Ports.OutputPortBase;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
-public class InputPortTest {
+public class InputPortBaseTest {
 
     @Test
     public void getWhetherDataChangedNoPreviousData() {
-        InputPort in=new InputPort();
-        OutputPort out=new OutputPort();
+        InputBooleanPort in=new InputBooleanPort();
+        OutputBooleanPort out=new OutputBooleanPort();
 
         in.Connect(out);
 
@@ -23,12 +23,12 @@ public class InputPortTest {
 
     @Test
     public void getWhetherDataChanged() {
-        InputPort in=new InputPort();
-        OutputPort out=new OutputPort();
+        InputBooleanPort in=new InputBooleanPort();
+        OutputBooleanPort out=new OutputBooleanPort();
 
         in.Connect(out);
 
-        IData data=new BooleanData();
+        BooleanData data=new BooleanData();
         out.Send(data);
 
         Assert.assertTrue(in.GetWhetherDataChanged());
@@ -36,12 +36,12 @@ public class InputPortTest {
 
     @Test
     public void getWhetherDataChangedSameData() {
-        InputPort in=new InputPort();
-        OutputPort out=new OutputPort();
+        InputBooleanPort in=new InputBooleanPort();
+        OutputBooleanPort out=new OutputBooleanPort();
 
         in.Connect(out);
 
-        IData data=new BooleanData();
+        BooleanData data=new BooleanData();
         out.Send(data);
         in.DownloadData();
 
@@ -50,8 +50,8 @@ public class InputPortTest {
 
     @Test
     public void downloadData() {
-        InputPort in=new InputPort();
-        OutputPort out=new OutputPort();
+        InputBooleanPort in=new InputBooleanPort();
+        OutputBooleanPort out=new OutputBooleanPort();
 
         in.Connect(out);
 
