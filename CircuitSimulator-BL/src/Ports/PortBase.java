@@ -3,7 +3,7 @@ package Ports;
 import Common.IResetable;
 import Common.IValidatable;
 
-public abstract class PortBase implements IPort, IValidatable, IResetable {
+public abstract class PortBase implements IPort {
     protected IPort connectedTo;
 
     protected void Connect(PortBase port) throws IllegalArgumentException {
