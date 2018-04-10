@@ -1,7 +1,9 @@
-package Ports;
+package Tests.PortTests;
 
 import Data.IData;
 import Data.NumericData;
+import Ports.InputPort;
+import Ports.OutputPort;
 import com.sun.corba.se.impl.orbutil.ObjectUtility;
 import org.junit.Assert;
 import org.junit.Test;

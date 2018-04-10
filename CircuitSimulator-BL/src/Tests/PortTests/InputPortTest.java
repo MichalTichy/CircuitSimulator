@@ -1,7 +1,9 @@
-package Ports;
+package Tests.PortTests;
 
 import Data.BooleanData;
 import Data.IData;
+import Ports.InputPort;
+import Ports.OutputPort;
 import org.junit.Assert;
 import org.junit.Test;
 
