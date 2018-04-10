@@ -16,5 +16,7 @@ public abstract class OutputPortBase extends PortBase{
     public boolean IsValid() {
         return super.IsValid() && connectedTo instanceof InputPortBase;
     }
+
+    public void Reset(){}
 }
 

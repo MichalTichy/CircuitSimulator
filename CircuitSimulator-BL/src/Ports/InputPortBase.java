@@ -4,7 +4,7 @@ import Common.IValidatable;
 import Data.IData;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
-public abstract class InputPortBase extends PortBase implements IValidatable{
+public abstract class InputPortBase extends PortBase{
     private IData currentData;
     private IData previousData;
 
@@ -25,5 +25,10 @@ public abstract class InputPortBase extends PortBase implements IValidatable{
     @Override
     public boolean IsValid() {
         return super.IsValid() && connectedTo instanceof OutputPortBase;
+    }
+
+    public void Reset(){
+        this.currentData=null;
+        this.previousData=null;
     }
 }

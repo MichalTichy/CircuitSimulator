@@ -1,6 +1,9 @@
 package Ports;
 
-public abstract class PortBase implements IPort {
+import Common.IResetable;
+import Common.IValidatable;
+
+public abstract class PortBase implements IPort, IValidatable, IResetable {
     protected IPort connectedTo;
 
     protected void Connect(PortBase port) throws IllegalArgumentException {
