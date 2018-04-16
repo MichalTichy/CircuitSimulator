@@ -2,7 +2,7 @@ package Ports;
 
 import Data.IData;
 
-public abstract class OutputPortBase extends PortBase{
+public abstract class OutputPortBase extends PortBase implements IOutputPort {
 
     protected void Send(IData data){
        if (connectedTo instanceof InputPortBase){

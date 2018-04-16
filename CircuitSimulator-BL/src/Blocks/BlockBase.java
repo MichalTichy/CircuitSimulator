@@ -1,20 +1,21 @@
 package Blocks;
-import Common.IResetable;
-import Common.ITimeTickConsumer;
+import Ports.IInputPort;
+import Ports.IOutputPort;
 import Ports.IPort;
+import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public abstract class BlockBase implements IBlock {
-    private List<IPort> inputPorts = new ArrayList<>();
-    private List<IPort> outputPorts = new ArrayList<>();
+    private List<IInputPort> inputPorts = new ArrayList<>();
+    private List<IOutputPort> outputPorts = new ArrayList<>();
 
-    public List<IPort> getInputPorts() {
+    public List<IInputPort> getInputPorts() {
         return inputPorts;
     }
 
-    public List<IPort> getOutputPorts() {
+    public List<IOutputPort> getOutputPorts() {
         return outputPorts;
     }
 
@@ -41,5 +42,22 @@ public abstract class BlockBase implements IBlock {
                 return false;
         }
         return true;
+    }
+
+    public void TickDetected(){
+        boolean execute = false;
+        if(inputPorts.isEmpty())    execute = true;
+        for (IInputPort port: inputPorts) {
+            if(port.GetWhetherDataChanged()){
+                execute = true;
+                break;
+            }
+        }
+        if (execute){
+            status = BlockStatus.Working;
+            this.Execute();
+        }else{
+            status = BlockStatus.Idle;
+        }
     }
 }

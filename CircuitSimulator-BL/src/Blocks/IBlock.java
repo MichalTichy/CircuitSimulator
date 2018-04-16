@@ -11,5 +11,6 @@ public interface IBlock extends IValidatable,IResetable,ITimeTickConsumer {
     BlockStatus GetStatus();
 
     void TickDetected();
+    void Execute();
 }
 

@@ -1,10 +1,8 @@
 package Ports;
 
-import Common.IValidatable;
 import Data.IData;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
-public abstract class InputPortBase extends PortBase{
+public abstract class InputPortBase extends PortBase implements IInputPort {
     private IData currentData;
     private IData previousData;
 
@@ -13,10 +11,12 @@ public abstract class InputPortBase extends PortBase{
     }
 
 
+    @Override
     public boolean GetWhetherDataChanged(){
         return !(currentData == previousData);
     }
 
+    @Override
     public IData DownloadData(){
         previousData=currentData;
         return currentData;
