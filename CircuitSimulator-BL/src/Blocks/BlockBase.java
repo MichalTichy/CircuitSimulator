@@ -4,22 +4,27 @@ import Ports.IOutputPort;
 import Ports.IPort;
 import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
 
+import java.awt.geom.Point2D;
 import java.util.ArrayList;
 import java.util.List;
 
 public abstract class BlockBase implements IBlock {
     private List<IInputPort> inputPorts = new ArrayList<>();
     private List<IOutputPort> outputPorts = new ArrayList<>();
+    private BlockStatus status=BlockStatus.Idle;
+    private Point2D position;
 
-    public List<IInputPort> getInputPorts() {
+    public List<IInputPort> GetInputPorts() {
         return inputPorts;
     }
 
-    public List<IOutputPort> getOutputPorts() {
+    public List<IOutputPort> GetOutputPorts() {
         return outputPorts;
     }
 
-    BlockStatus status=BlockStatus.Idle;
+    public Point2D GetPosition(){
+        return position;
+    }
 
     public BlockStatus GetStatus() {
         return status;
