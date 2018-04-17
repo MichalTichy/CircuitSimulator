@@ -1,6 +1,7 @@
 package Ports;
 
 import Data.DataType;
+import Data.IData;
 
 public class InputAnyPort extends InputPortBase {
 
@@ -16,6 +17,10 @@ public class InputAnyPort extends InputPortBase {
 
     public void setDataType(DataType dataType) {
         this.currentDataType = currentDataType;
+    }
+
+    public IData DownloadData() {
+        return downloadData();
     }
 
     @Override

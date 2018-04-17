@@ -16,8 +16,7 @@ public abstract class InputPortBase extends PortBase implements IInputPort {
         return !(currentData == previousData);
     }
 
-    @Override
-    public IData DownloadData(){
+    protected IData downloadData() {
         previousData=currentData;
         return currentData;
     }

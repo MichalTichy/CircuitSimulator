@@ -5,6 +5,10 @@ import java.util.Objects;
 public class NumericData implements IData{
     public double Data;
 
+    public NumericData(double data) {
+        this.Data = data;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

@@ -1,18 +1,18 @@
 package Blocks;
+
 import Ports.IInputPort;
 import Ports.IOutputPort;
 import Ports.IPort;
-import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
 
 import java.awt.geom.Point2D;
 import java.util.ArrayList;
 import java.util.List;
 
 public abstract class BlockBase implements IBlock {
-    private List<IInputPort> inputPorts = new ArrayList<>();
-    private List<IOutputPort> outputPorts = new ArrayList<>();
-    private BlockStatus status=BlockStatus.Idle;
-    private Point2D position;
+    protected List<IInputPort> inputPorts = new ArrayList<>();
+    protected List<IOutputPort> outputPorts = new ArrayList<>();
+    protected BlockStatus status = BlockStatus.Idle;
+    protected Point2D position;
 
     public List<IInputPort> GetInputPorts() {
         return inputPorts;
@@ -49,7 +49,8 @@ public abstract class BlockBase implements IBlock {
         return true;
     }
 
-    public void TickDetected(){
+    @Override
+    public void ProcessTick() {
         boolean execute = false;
         if(inputPorts.isEmpty())    execute = true;
         for (IInputPort port: inputPorts) {
