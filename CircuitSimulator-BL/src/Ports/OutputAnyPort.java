@@ -1,7 +1,7 @@
 package Ports;
 
 import Data.DataType;
-import Data.NumericData;
+import Data.IData;
 
 public class OutputAnyPort extends OutputPortBase {
 
@@ -12,7 +12,7 @@ public class OutputAnyPort extends OutputPortBase {
     }
 
     public void setDataType(DataType dataType) {
-        this.currentDataType = currentDataType;
+        this.currentDataType = dataType;
     }
 
     public void Connect(OutputAnyPort port)
@@ -20,7 +20,7 @@ public class OutputAnyPort extends OutputPortBase {
         super.Connect(port);
     }
 
-    public void Send(NumericData data)
+    public void Send(IData data)
     {
         super.Send(data);
     }
