@@ -5,6 +5,10 @@ import java.util.Objects;
 public class BooleanData implements IData{
     public boolean Data;
 
+    public BooleanData(boolean data) {
+        this.Data = data;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
