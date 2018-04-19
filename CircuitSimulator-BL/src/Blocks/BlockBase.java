@@ -37,6 +37,11 @@ public abstract class BlockBase implements IBlock {
         status=BlockStatus.Idle;
     }
 
+    @Override
+    public boolean IsPriorityConsumer() {
+        return true;
+    }
+
     public boolean IsValid() {
         for (IPort item:inputPorts) {
             if (!item.IsValid())

@@ -20,7 +20,7 @@ public class DividerBlock extends BlockBase {
     }
 
     @Override
-    public void Execute() {     // TODO division by zero exception
+    public void Execute() {
         double result = input1.DownloadData().Data / input2.DownloadData().Data;
         output.Send(new NumericData(result));
 
