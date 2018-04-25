@@ -17,8 +17,8 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("GUI.fxml"));
 
         Scene scene = new Scene(root);
-
         stage.setScene(scene);
+        stage.setTitle("Circuit Simulator");
         stage.show();
     }
 }

@@ -7,146 +7,203 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 <?import java.net.URL?>
-<VBox xmlns:fx="http://javafx.com/fxml/1" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8">
+<VBox xmlns:fx="http://javafx.com/fxml/1" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8"
+      fx:controller="GUI.GUIController">
     <children>
-        <MenuBar VBox.vgrow="NEVER">
-            <menus>
-                <Menu mnemonicParsing="false" text="File"/>
-                <Menu mnemonicParsing="false" text="Edit"/>
-                <Menu mnemonicParsing="false" text="Help"/>
-            </menus>
-        </MenuBar>
+        <Pane minHeight="25.0">
+            <children>
+                <Button layoutX="523.0" mnemonicParsing="false" onAction="#ResetClicked" prefWidth="85.0" text="Reset"/>
+                <Button disable="true" mnemonicParsing="false" prefHeight="25.0" prefWidth="267.0"/>
+                <Button disable="true" layoutX="607.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="293.0"/>
+                <Button layoutX="353.0" mnemonicParsing="false" onAction="#StartStopClicked" prefWidth="85.0"
+                        text="Start/Stop"/>
+                <Button layoutX="268.0" mnemonicParsing="false" onAction="#StepClicked" prefWidth="85.0" text="Step"/>
+                <TextField fx:id="msPerTick" layoutX="438.0" prefHeight="25.0" prefWidth="85.0"
+                           promptText="Speed [ms]"/>
+            </children>
+        </Pane>
         <SplitPane dividerPositions="0.15478841870824053, 0.8229398663697105" focusTraversable="true" prefHeight="-1.0"
                    prefWidth="-1.0" VBox.vgrow="ALWAYS">
             <items>
-                <ScrollPane fitToWidth="true" hbarPolicy="NEVER" maxHeight="1.7976931348623157E308" maxWidth="135.0"
-                            minWidth="120.0" prefWidth="135.0">
+                <ScrollPane maxWidth="120.0" minWidth="120.0" prefViewportHeight="551.0" prefViewportWidth="125.0"
+                            prefWidth="120.0">
                     <content>
-                        <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="120.0" minHeight="0.0" minWidth="120.0"
-                                    prefWidth="120.0">
-                            <children>
-                                <ImageView fitHeight="80.0" fitWidth="120.0" focusTraversable="true" pickOnBounds="true"
-                                           preserveRatio="true">
-                                    <image>
-                                        <Image url="@../../srcImages/AdderBlock.png"/>
-                                    </image>
-                                </ImageView>
-                                <ImageView fitHeight="80.0" fitWidth="120.0" focusTraversable="true" layoutY="85.0"
-                                           pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@../../srcImages/DividerBlock.png"/>
-                                    </image>
-                                </ImageView>
-                                <ImageView fitHeight="80.0" fitWidth="120.0" focusTraversable="true" layoutY="170.0"
-                                           pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@../../srcImages/DividerBlock.png"/>
-                                    </image>
-                                </ImageView>
-                                <ImageView fitHeight="80.0" fitWidth="120.0" focusTraversable="true" layoutY="255.0"
-                                           pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@../../srcImages/DividerBlock.png"/>
-                                    </image>
-                                </ImageView>
-                                <ImageView fitHeight="80.0" fitWidth="120.0" focusTraversable="true" layoutY="340.0"
-                                           pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@../../srcImages/DividerBlock.png"/>
-                                    </image>
-                                </ImageView>
-                                <ImageView fitHeight="80.0" fitWidth="120.0" focusTraversable="true" layoutY="425.0"
-                                           pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@../../srcImages/DividerBlock.png"/>
-                                    </image>
-                                </ImageView>
-                                <ImageView fitHeight="80.0" fitWidth="120.0" focusTraversable="true" layoutY="510.0"
-                                           pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@../../srcImages/DividerBlock.png"/>
-                                    </image>
-                                </ImageView>
-                                <ImageView fitHeight="80.0" fitWidth="120.0" focusTraversable="true" layoutY="595.0"
-                                           pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@../../srcImages/DividerBlock.png"/>
-                                    </image>
-                                </ImageView>
-                                <ImageView fitHeight="80.0" fitWidth="120.0" focusTraversable="true" layoutY="680.0"
-                                           pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@../../srcImages/DividerBlock.png"/>
-                                    </image>
-                                </ImageView>
-                                <ImageView fitHeight="80.0" fitWidth="120.0" focusTraversable="true" layoutY="765.0"
-                                           pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@../../srcImages/DividerBlock.png"/>
-                                    </image>
-                                </ImageView>
-                                <ImageView fitHeight="80.0" fitWidth="120.0" focusTraversable="true" layoutY="850.0"
-                                           pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@../../srcImages/DividerBlock.png"/>
-                                    </image>
-                                </ImageView>
-                                <ImageView fitHeight="80.0" fitWidth="120.0" focusTraversable="true" layoutY="935.0"
-                                           pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@../../srcImages/DividerBlock.png"/>
-                                    </image>
-                                </ImageView>
-                                <ImageView fitHeight="80.0" fitWidth="120.0" focusTraversable="true" layoutY="1020.0"
-                                           pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@../../srcImages/DividerBlock.png"/>
-                                    </image>
-                                </ImageView>
-                                <ImageView fitHeight="80.0" fitWidth="120.0" focusTraversable="true" layoutY="1105.0"
-                                           pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@../../srcImages/DividerBlock.png"/>
-                                    </image>
-                                </ImageView>
-                                <ImageView fitHeight="80.0" fitWidth="120.0" focusTraversable="true" layoutY="1190.0"
-                                           pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@../../srcImages/DividerBlock.png"/>
-                                    </image>
-                                </ImageView>
-                                <ImageView fitHeight="80.0" fitWidth="120.0" focusTraversable="true" layoutY="1275.0"
-                                           pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@../../srcImages/DividerBlock.png"/>
-                                    </image>
-                                </ImageView>
-                                <ImageView fitHeight="80.0" fitWidth="120.0" focusTraversable="true" layoutY="1360.0"
-                                           pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@../../srcImages/DividerBlock.png"/>
-                                    </image>
-                                </ImageView>
-                                <ImageView fitHeight="80.0" fitWidth="120.0" focusTraversable="true" layoutY="1445.0"
-                                           pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@../../srcImages/DividerBlock.png"/>
-                                    </image>
-                                </ImageView>
-                                <ImageView fitHeight="80.0" fitWidth="120.0" focusTraversable="true" layoutY="1530.0"
-                                           pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@../../srcImages/DividerBlock.png"/>
-                                    </image>
-                                </ImageView>
-                                <ImageView fitHeight="80.0" fitWidth="120.0" focusTraversable="true" layoutY="1615.0"
-                                           pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@../../srcImages/DividerBlock.png"/>
-                                    </image>
-                                </ImageView>
-                            </children>
-                        </AnchorPane>
+                        <Accordion maxWidth="-Infinity" minWidth="-Infinity" prefWidth="120.0">
+                            <panes>
+                                <TitledPane animated="false" text="IO blocks">
+                                    <content>
+                                        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                            <children>
+                                                <ImageView fitHeight="35.0" fitWidth="100.0" focusTraversable="true"
+                                                           layoutX="10.0" layoutY="5.0" pickOnBounds="true"
+                                                           preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../srcImages/LogicalInputBlock.png"/>
+                                                    </image>
+                                                </ImageView>
+                                                <ImageView fitHeight="35.0" fitWidth="100.0" focusTraversable="true"
+                                                           layoutX="10.0" layoutY="45.0" pickOnBounds="true"
+                                                           preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../srcImages/BooleanInputBlock.png"/>
+                                                    </image>
+                                                </ImageView>
+                                                <ImageView fitHeight="35.0" fitWidth="100.0" focusTraversable="true"
+                                                           layoutX="10.0" layoutY="85.0" pickOnBounds="true"
+                                                           preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../srcImages/LogicalOutputBlock.png"/>
+                                                    </image>
+                                                </ImageView>
+                                                <ImageView fitHeight="35.0" fitWidth="100.0" focusTraversable="true"
+                                                           layoutX="10.0" layoutY="125.0" pickOnBounds="true"
+                                                           preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../srcImages/BooleanOutputBlock.png"/>
+                                                    </image>
+                                                </ImageView>
+                                            </children>
+                                        </AnchorPane>
+                                    </content>
+                                </TitledPane>
+                                <TitledPane animated="false" text="Logical blocks">
+                                    <content>
+                                        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                            <children>
+                                                <ImageView fitHeight="60.0" fitWidth="100.0" focusTraversable="true"
+                                                           layoutX="10.0" layoutY="5.0" pickOnBounds="true"
+                                                           preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../srcImages/LogicalANDBlock.png"/>
+                                                    </image>
+                                                </ImageView>
+                                                <ImageView fitHeight="60.0" fitWidth="100.0" focusTraversable="true"
+                                                           layoutX="10.0" layoutY="70.0" pickOnBounds="true"
+                                                           preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../srcImages/LogicalORBlock.png"/>
+                                                    </image>
+                                                </ImageView>
+                                                <ImageView fitHeight="60.0" fitWidth="100.0" focusTraversable="true"
+                                                           layoutX="10.0" layoutY="135.0" pickOnBounds="true"
+                                                           preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../srcImages/LogicalNANDBlock.png"/>
+                                                    </image>
+                                                </ImageView>
+                                                <ImageView fitHeight="60.0" fitWidth="100.0" focusTraversable="true"
+                                                           layoutX="10.0" layoutY="200.0" pickOnBounds="true"
+                                                           preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../srcImages/LogicalNORBlock.png"/>
+                                                    </image>
+                                                </ImageView>
+                                                <ImageView fitHeight="35.0" fitWidth="100.0" focusTraversable="true"
+                                                           layoutX="10.0" layoutY="265.0" pickOnBounds="true"
+                                                           preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../srcImages/LogicalNOTBlock.png"/>
+                                                    </image>
+                                                </ImageView>
+                                                <ImageView fitHeight="60.0" fitWidth="100.0" focusTraversable="true"
+                                                           layoutX="10.0" layoutY="305.0" pickOnBounds="true"
+                                                           preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../srcImages/LogicalXNORBlock.png"/>
+                                                    </image>
+                                                </ImageView>
+                                                <ImageView fitHeight="60.0" fitWidth="100.0" focusTraversable="true"
+                                                           layoutX="10.0" layoutY="370.0" pickOnBounds="true"
+                                                           preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../srcImages/LogicalXORBlock.png"/>
+                                                    </image>
+                                                </ImageView>
+                                            </children>
+                                        </AnchorPane>
+                                    </content>
+                                </TitledPane>
+                                <TitledPane animated="false" text="Numeric blocks">
+                                    <content>
+                                        <AnchorPane>
+                                            <children>
+                                                <ImageView fitHeight="60.0" fitWidth="100.0" focusTraversable="true"
+                                                           layoutX="10.0" layoutY="5.0" pickOnBounds="true"
+                                                           preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../srcImages/AdderBlock.png"/>
+                                                    </image>
+                                                </ImageView>
+                                                <ImageView fitHeight="60.0" fitWidth="100.0" focusTraversable="true"
+                                                           layoutX="10.0" layoutY="70.0" pickOnBounds="true"
+                                                           preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../srcImages/MultiplierBlock.png"/>
+                                                    </image>
+                                                </ImageView>
+                                                <ImageView fitHeight="60.0" fitWidth="100.0" focusTraversable="true"
+                                                           layoutX="10.0" layoutY="135.0" pickOnBounds="true"
+                                                           preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../srcImages/DividerBlock.png"/>
+                                                    </image>
+                                                </ImageView>
+                                                <ImageView fitHeight="60.0" fitWidth="100.0" focusTraversable="true"
+                                                           layoutX="10.0" layoutY="200.0" pickOnBounds="true"
+                                                           preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../srcImages/IsEqualBlock.png"/>
+                                                    </image>
+                                                </ImageView>
+                                                <ImageView fitHeight="60.0" fitWidth="100.0" focusTraversable="true"
+                                                           layoutX="10.0" layoutY="265.0" pickOnBounds="true"
+                                                           preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../srcImages/IsGreaterBlock.png"/>
+                                                    </image>
+                                                </ImageView>
+                                                <ImageView fitHeight="60.0" fitWidth="100.0" focusTraversable="true"
+                                                           layoutX="10.0" layoutY="330.0" pickOnBounds="true"
+                                                           preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../srcImages/IsLessBlock.png"/>
+                                                    </image>
+                                                </ImageView>
+                                            </children>
+                                        </AnchorPane>
+                                    </content>
+                                </TitledPane>
+                                <TitledPane animated="false" text="Special blocks">
+                                    <content>
+                                        <AnchorPane>
+                                            <children>
+                                                <ImageView fitHeight="35.0" fitWidth="100.0" focusTraversable="true"
+                                                           layoutX="10.0" layoutY="5.0" pickOnBounds="true"
+                                                           preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../srcImages/ClockBlock.png"/>
+                                                    </image>
+                                                </ImageView>
+                                                <ImageView fitHeight="60.0" fitWidth="100.0" focusTraversable="true"
+                                                           layoutX="10.0" layoutY="45.0" pickOnBounds="true"
+                                                           preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../srcImages/CounterBlock.png"/>
+                                                    </image>
+                                                </ImageView>
+                                                <ImageView fitHeight="60.0" fitWidth="100.0" focusTraversable="true"
+                                                           layoutX="10.0" layoutY="110.0" pickOnBounds="true"
+                                                           preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../srcImages/SplitterBlock.png"/>
+                                                    </image>
+                                                </ImageView>
+                                            </children>
+                                        </AnchorPane>
+                                    </content>
+                                </TitledPane>
+                            </panes>
+                        </Accordion>
                     </content>
                 </ScrollPane>
                 <ScrollPane prefHeight="-1.0" prefWidth="-1.0">
@@ -154,7 +211,7 @@
                         <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="545.0" prefWidth="430.0"/>
                     </content>
                 </ScrollPane>
-                <ScrollPane hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" visible="false">
+                <ScrollPane hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0">
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0"/>
                     </content>
