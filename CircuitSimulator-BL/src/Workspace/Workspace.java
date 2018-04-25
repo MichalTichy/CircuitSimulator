@@ -11,7 +11,7 @@ import java.util.TimerTask;
 public class Workspace implements IWorkspace {
     private Collection<ITimeTickConsumer> subscribers = new ArrayList<>();
     private Collection<IBlock> blocks = new ArrayList<>();
-    private Timer timer = new Timer();
+    private Timer timer;
     private boolean isRunning;
 
     @Override
@@ -47,6 +47,7 @@ public class Workspace implements IWorkspace {
     @Override
     public void Run(int msPerTick) { //TODO check multiple runs
         isRunning = true;
+        timer = new Timer();
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
