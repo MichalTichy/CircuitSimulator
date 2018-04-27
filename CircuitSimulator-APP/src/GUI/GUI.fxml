@@ -10,23 +10,32 @@
 <VBox xmlns:fx="http://javafx.com/fxml/1" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8"
       fx:controller="GUI.GUIController">
     <children>
-        <Pane minHeight="25.0">
+        <HBox maxHeight="-Infinity" minHeight="-Infinity" minWidth="340.0" prefHeight="25.0">
             <children>
-                <Button layoutX="523.0" mnemonicParsing="false" onAction="#ResetClicked" prefWidth="85.0" text="Reset"/>
-                <Button disable="true" mnemonicParsing="false" prefHeight="25.0" prefWidth="267.0"/>
-                <Button disable="true" layoutX="607.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="293.0"/>
-                <Button layoutX="353.0" mnemonicParsing="false" onAction="#StartStopClicked" prefWidth="85.0"
-                        text="Start/Stop"/>
-                <Button layoutX="268.0" mnemonicParsing="false" onAction="#StepClicked" prefWidth="85.0" text="Step"/>
-                <TextField fx:id="msPerTick" layoutX="438.0" prefHeight="25.0" prefWidth="85.0"
-                           promptText="Speed [ms]"/>
+                <Button alignment="CENTER_RIGHT" disable="true" layoutX="607.0" maxHeight="-Infinity"
+                        minHeight="-Infinity" minWidth="0.0" mnemonicParsing="false" prefHeight="25.0"
+                        prefWidth="309.0"/>
+                <Button alignment="CENTER" layoutX="353.0" maxHeight="-Infinity" maxWidth="-Infinity"
+                        minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#StartStopClicked"
+                        prefHeight="25.0" prefWidth="85.0" text="Start/Stop"/>
+                <TextField fx:id="msPerTick" alignment="CENTER" layoutX="438.0" maxHeight="-Infinity"
+                           maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0"
+                           prefWidth="85.0" promptText="Speed [ms]"/>
+                <Button alignment="CENTER" layoutX="268.0" maxHeight="-Infinity" maxWidth="-Infinity"
+                        minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#StepClicked"
+                        prefHeight="25.0" prefWidth="85.0" text="Step"/>
+                <Button alignment="CENTER" layoutX="523.0" maxHeight="-Infinity" maxWidth="-Infinity"
+                        minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#ResetClicked"
+                        prefHeight="25.0" prefWidth="85.0" text="Reset"/>
+                <Button disable="true" maxHeight="-Infinity" minHeight="-Infinity" minWidth="0.0"
+                        mnemonicParsing="false" prefHeight="25.0" prefWidth="308.0"/>
             </children>
-        </Pane>
+        </HBox>
         <SplitPane dividerPositions="0.15478841870824053, 0.8229398663697105" focusTraversable="true" prefHeight="-1.0"
                    prefWidth="-1.0" VBox.vgrow="ALWAYS">
             <items>
                 <ScrollPane maxWidth="120.0" minWidth="120.0" prefViewportHeight="551.0" prefViewportWidth="125.0"
-                            prefWidth="120.0">
+                            prefWidth="120.0" SplitPane.resizableWithParent="false">
                     <content>
                         <Accordion maxWidth="-Infinity" minWidth="-Infinity" prefWidth="120.0">
                             <panes>
