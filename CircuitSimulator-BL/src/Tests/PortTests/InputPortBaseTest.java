@@ -28,7 +28,7 @@ public class InputPortBaseTest {
 
         in.Connect(out);
 
-        BooleanData data=new BooleanData();
+        BooleanData data=new BooleanData(false);
         out.Send(data);
 
         Assert.assertTrue(in.GetWhetherDataChanged());
@@ -41,7 +41,7 @@ public class InputPortBaseTest {
 
         in.Connect(out);
 
-        BooleanData data=new BooleanData();
+        BooleanData data=new BooleanData(false);
         out.Send(data);
         in.DownloadData();
 
@@ -55,7 +55,7 @@ public class InputPortBaseTest {
 
         in.Connect(out);
 
-        BooleanData data = new BooleanData();
+        BooleanData data = new BooleanData(false);
         data.Data=true;
 
         out.Send(data);

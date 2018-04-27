@@ -19,7 +19,7 @@ public class OutputPortBaseTest {
 
         in.Connect(out);
 
-        BooleanData data=new BooleanData();
+        BooleanData data=new BooleanData(false);
 
         out.Send(data);
         Assert.assertEquals(data,in.DownloadData());

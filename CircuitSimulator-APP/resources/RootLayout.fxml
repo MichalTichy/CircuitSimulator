@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<fx:root fx:id="root_pane" prefHeight="100.0" stylesheets="@application.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+       <VBox xmlns:fx="http://javafx.com/fxml/1">
+         <children>
+             <Pane minHeight="25.0">
+                 <children>
+                     <Button layoutX="523.0" mnemonicParsing="false" prefWidth="85.0" text="Reset" />
+                     <Button disable="true" mnemonicParsing="false" prefHeight="25.0" prefWidth="267.0" />
+                     <Button disable="true" layoutX="607.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="293.0" />
+                     <Button layoutX="353.0" mnemonicParsing="false" prefWidth="85.0" text="Start/Stop" />
+                     <Button layoutX="268.0" mnemonicParsing="false" prefWidth="85.0" text="Step" />
+                 </children>
+             </Pane>
+            <SplitPane fx:id="base_pane" dividerPositions="0.15795724465558195, 0.8705463182897862" maxHeight="-Infinity" maxWidth="-Infinity">
+              <items>
+                  <ScrollPane maxWidth="130.0" minWidth="130.0" prefViewportHeight="551.0" prefViewportWidth="135.0"
+                              prefWidth="120.0">
+                     <padding>
+                        <Insets left="8.0" top="6.0" />
+                     </padding>
+                     <content>
+                        <VBox fx:id="left_pane" spacing="10.0" />
+                     </content>
+                  </ScrollPane>
+                <AnchorPane fx:id="right_pane" minHeight="-1.0" minWidth="-1.0" prefHeight="545.0" prefWidth="430.0" />
+                  <ScrollPane hbarPolicy="NEVER" prefHeight="-1.0" prefWidth="-1.0">
+                  <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
+                  </content>
+              </ScrollPane>
+              </items>
+            </SplitPane>
+         </children>
+      </VBox>
+   </children>
+</fx:root>

@@ -3,12 +3,12 @@ package Blocks;
 import Data.NumericData;
 import Ports.OutputNumericPort;
 
-public class NumericInputPort extends BlockBase {
+public class NumericInputBlock extends BlockBase {
     private OutputNumericPort output;
     private boolean executed = false;
     private double value = 0;
 
-    public NumericInputPort() {
+    public NumericInputBlock() {
         this.output = new OutputNumericPort();
         this.outputPorts.add(output);
     }

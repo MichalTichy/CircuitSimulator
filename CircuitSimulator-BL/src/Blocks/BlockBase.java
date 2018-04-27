@@ -12,7 +12,6 @@ public abstract class BlockBase implements IBlock {
     protected List<IInputPort> inputPorts = new ArrayList<>();
     protected List<IOutputPort> outputPorts = new ArrayList<>();
     protected BlockStatus status = BlockStatus.Idle;
-    protected Point2D position;
 
     public List<IInputPort> GetInputPorts() {
         return inputPorts;
@@ -20,10 +19,6 @@ public abstract class BlockBase implements IBlock {
 
     public List<IOutputPort> GetOutputPorts() {
         return outputPorts;
-    }
-
-    public Point2D GetPosition(){
-        return position;
     }
 
     public BlockStatus GetStatus() {
