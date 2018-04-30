@@ -10,7 +10,6 @@ public abstract class InputPortBase extends PortBase implements IInputPort {
         this.currentData = data;
     }
 
-
     @Override
     public boolean GetWhetherDataChanged(){
         return !(currentData == previousData);

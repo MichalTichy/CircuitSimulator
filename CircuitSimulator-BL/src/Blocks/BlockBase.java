@@ -3,12 +3,24 @@ package Blocks;
 import Ports.IInputPort;
 import Ports.IOutputPort;
 import Ports.IPort;
+import javafx.geometry.Point2D;
 
-import java.awt.geom.Point2D;
 import java.util.ArrayList;
 import java.util.List;
 
 public abstract class BlockBase implements IBlock {
+
+    protected Point2D position;
+    @Override
+    public Point2D getPosition() {
+        return position;
+    }
+
+    @Override
+    public void setPosition(Point2D position) {
+        this.position =position;
+    }
+
     protected List<IInputPort> inputPorts = new ArrayList<>();
     protected List<IOutputPort> outputPorts = new ArrayList<>();
     protected BlockStatus status = BlockStatus.Idle;

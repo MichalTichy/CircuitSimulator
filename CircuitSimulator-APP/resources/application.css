@@ -1,4 +1,45 @@
 .dragicon {
+	-fx-border-width: 3;
+}
+
+.port {
+	-fx-background-color: blue;
+}
+
+.port.icon-status-Error {
+	-fx-background-color: red;
+}
+
+.port.icon-status-OK {
+	-fx-background-color: green;
+}
+
+.port.icon-status-Disabled {
+	-fx-background-color: grey;
+	-fx-border-color: grey;
+}
+
+.icon-status-Idle {
+	-fx-border-color: yellow;
+}
+
+.port.icon-status-Selected {
+	-fx-border-color: yellow;
+	-fx-border-style: dotted;
+	-fx-border-width: 3;
+	-fx-background-color: blue;
+}
+
+.icon-status-Working {
+	-fx-border-color: green;
+}
+
+.icon-status-Error {
+	-fx-border-color: red;
+}
+
+.icon-status-OK {
+	-fx-border-color: green;
 }
 
 .icon-Adder {

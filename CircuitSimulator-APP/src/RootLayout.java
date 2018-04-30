@@ -15,7 +15,7 @@ public class RootLayout extends AnchorPane{
 	@FXML AnchorPane right_pane;
 	@FXML VBox left_pane;
 
-	private DragIcon mDragOverIcon = null;
+	private GuiBlock mDragOverIcon = null;
 	
 	private EventHandler<DragEvent> mIconDragOverRoot = null;
 	private EventHandler<DragEvent> mIconDragDropped = null;
@@ -41,20 +41,16 @@ public class RootLayout extends AnchorPane{
 	
 	@FXML
 	private void initialize() {
-		
-		//Add one icon that will be used for the drag-drop process
-		//This is added as a child to the root anchorpane so it can be visible
-		//on both sides of the split pane.
-		mDragOverIcon = new DragIcon();
+
+		mDragOverIcon = new GuiBlock();
 		
 		mDragOverIcon.setVisible(false);
 		mDragOverIcon.setOpacity(0.65);
 		getChildren().add(mDragOverIcon);
-		
-		//populate left pane with multiple colored icons for testing
+
 		for (int i = 0; i < 20; i++) {
 			
-			DragIcon icn = new DragIcon();
+			GuiBlock icn = new GuiBlock();
 			
 			addDragDetection(icn);
 			
@@ -64,12 +60,12 @@ public class RootLayout extends AnchorPane{
 		
 		buildDragHandlers();
 
-		workspaceConnector=new WorkSpaceConnector();
+		workspaceConnector=new WorkSpaceConnector(right_pane);
 	}
 	
-	private void addDragDetection(DragIcon dragIcon) {
+	private void addDragDetection(GuiBlock block) {
 		
-		dragIcon.setOnDragDetected (new EventHandler <MouseEvent> () {
+		block.setOnDragDetected (new EventHandler <MouseEvent> () {
 
 			@Override
 			public void handle(MouseEvent event) {
@@ -79,8 +75,8 @@ public class RootLayout extends AnchorPane{
 				right_pane.setOnDragOver(mIconDragOverRightPane);
 				right_pane.setOnDragDropped(mIconDragDropped);
 				
-				// get a reference to the clicked DragIcon object
-				DragIcon icn = (DragIcon) event.getSource();
+				// get a reference to the clicked GuiBlock object
+				GuiBlock icn = (GuiBlock) event.getSource();
 				
 				//begin drag ops
 				mDragOverIcon.setType(icn.getType());
@@ -182,15 +178,9 @@ public class RootLayout extends AnchorPane{
 
                         Point2D cursorPoint = container.getValue("scene_coords");
 
-                        DragIcon droppedIcon = new DragIcon(type,workspaceConnector);
+                        GuiBlock droppedIcon = GuiBlock.Create(type,workspaceConnector,new Point2D(cursorPoint.getX()-32, cursorPoint.getY()-32));
 
-						right_pane.getChildren().add(droppedIcon);
-
-
-
-                        droppedIcon.relocateToPoint(
-                                new Point2D(cursorPoint.getX() - 32, cursorPoint.getY() - 32)
-                        );
+                        workspaceConnector.DrawWorkspace();
 					}
 				}
 

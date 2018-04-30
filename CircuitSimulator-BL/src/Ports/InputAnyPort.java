@@ -7,7 +7,7 @@ public class InputAnyPort extends InputPortBase {
 
     private DataType currentDataType = DataType.Any;
 
-    public void Connect(PortBase port) {
+    public void Connect(OutputPortBase port) {
         super.Connect(port);
     }
 

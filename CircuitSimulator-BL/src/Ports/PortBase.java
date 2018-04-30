@@ -6,6 +6,11 @@ import Common.IValidatable;
 public abstract class PortBase implements IPort {
     protected IPort connectedTo;
 
+    @Override
+    public IPort getConnectedPort() {
+        return connectedTo;
+    }
+
     protected void Connect(PortBase port) throws IllegalArgumentException {
         if(connectedTo == port) return;
         connectedTo = port;

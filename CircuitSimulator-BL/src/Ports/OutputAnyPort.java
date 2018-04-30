@@ -15,7 +15,7 @@ public class OutputAnyPort extends OutputPortBase {
         this.currentDataType = dataType;
     }
 
-    public void Connect(OutputAnyPort port)
+    public void Connect(InputPortBase port)
     {
         super.Connect(port);
     }
