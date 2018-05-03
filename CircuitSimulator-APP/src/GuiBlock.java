@@ -67,11 +67,7 @@ public class GuiBlock extends AnchorPane{
         }
 
 		workSpaceConnector.DeleteBlock(block);
-        Parent parent = getParent();
-        if (parent!=null){
-            ((Pane) parent).getChildren().remove(this);
-        }
-		blocks.remove(block);
+        workSpaceConnector.DrawWorkspace();
 	}
 
 	private boolean getWhetherAdded(){

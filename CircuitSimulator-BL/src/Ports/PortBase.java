@@ -2,6 +2,7 @@ package Ports;
 
 import Common.IResetable;
 import Common.IValidatable;
+import com.sun.org.apache.bcel.internal.generic.IF_ACMPEQ;
 
 public abstract class PortBase implements IPort {
     protected IPort connectedTo;
@@ -13,6 +14,7 @@ public abstract class PortBase implements IPort {
 
     protected void Connect(PortBase port) throws IllegalArgumentException {
         if(connectedTo == port) return;
+        if(connectedTo!=null) Disconnect();
         connectedTo = port;
         port.Connect(this);
     }

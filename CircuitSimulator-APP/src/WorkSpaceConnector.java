@@ -30,6 +30,12 @@ public class WorkSpaceConnector {
         return block;
     }
     public void DeleteBlock(IBlock block){
+        for (IPort port :block.GetOutputPorts()) {
+            port.Disconnect();
+        }
+        for (IPort port :block.GetInputPorts()) {
+            port.Disconnect();
+        }
         workspace.RemoveBlock(block);
     }
 
@@ -168,6 +174,8 @@ public class WorkSpaceConnector {
             GuiPort port = GuiPort.connectionSource;
             port.DisableIncompatiblePorts();
         }
+
+        AddInputsAndOutputs();
     }
 
     private void CreatePortConnections(GuiPort source, GuiPort destination) {
@@ -201,5 +209,9 @@ public class WorkSpaceConnector {
         connection.setStartY(sourcePos.getY()+source.getPrefHeight()/2);
         connection.setEndX(destinationPos.getX()+destination.getPrefWidth()/2);
         connection.setEndY(destinationPos.getY()+destination.getPrefHeight()/2);
+    }
+
+    private void AddInputsAndOutputs(){
+
     }
 }

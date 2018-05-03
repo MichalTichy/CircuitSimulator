@@ -35,8 +35,10 @@ public class GuiPort extends AnchorPane{
 			if (GuiPort.connectionSource!=null){
 				if (GuiPort.connectionSource==this)
 					GuiPort.connectionSource=null;
-				else
+				else{
 					workspaceConnector.ConnectPort(GuiPort.connectionSource,this);
+					workspaceConnector.DrawWorkspace();
+				}
 				EnableAllPorts();
 			}
 			else{
@@ -154,30 +156,33 @@ public class GuiPort extends AnchorPane{
 		PortType type =GetType();
 		for (GuiPort port : ports.values()) {
 			if (port==this) {
-				enabled =true;
-				continue;
+				enabled =false;
+			}
+			else{
+
+				switch (port.GetType()){
+					case NumericInput:
+						port.enabled =type==PortType.NumericOutput || type==PortType.AnyOutput;
+						break;
+					case NumericOutput:
+						port.enabled =type==PortType.NumericInput || type==PortType.AnyInput;
+						break;
+					case LogicalInput:
+						port.enabled =type==PortType.LogicalOutput || type==PortType.AnyOutput;
+						break;
+					case LogicalOutput:
+						port.enabled =type==PortType.LogicalInput || type==PortType.AnyInput;
+						break;
+					case AnyInput:
+						port.enabled =type==PortType.LogicalOutput || type==PortType.NumericOutput || type==PortType.AnyOutput;
+						break;
+					case AnyOutput:
+						port.enabled =type==PortType.LogicalInput || type==PortType.NumericInput || type==PortType.AnyInput;
+						break;
+				}
 			}
 
-			switch (port.GetType()){
-				case NumericInput:
-					port.enabled =type==PortType.NumericOutput || type==PortType.AnyOutput;
-					break;
-				case NumericOutput:
-					port.enabled =type==PortType.NumericInput || type==PortType.AnyInput;
-					break;
-				case LogicalInput:
-					port.enabled =type==PortType.LogicalOutput || type==PortType.AnyOutput;
-					break;
-				case LogicalOutput:
-					port.enabled =type==PortType.LogicalInput || type==PortType.AnyInput;
-					break;
-				case AnyInput:
-					port.enabled =type==PortType.LogicalOutput || type==PortType.NumericOutput || type==PortType.AnyOutput;
-					break;
-				case AnyOutput:
-					port.enabled =type==PortType.LogicalInput || type==PortType.NumericInput || type==PortType.AnyInput;
-					break;
-			}
+			port.UpdateStyles();
 		}
 	}
 
