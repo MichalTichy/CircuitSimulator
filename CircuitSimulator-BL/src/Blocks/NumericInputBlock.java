@@ -6,7 +6,7 @@ import Ports.OutputNumericPort;
 public class NumericInputBlock extends BlockBase {
     private OutputNumericPort output;
     private boolean executed = false;
-    private double value = 5;
+    private double value = 0;
 
     public NumericInputBlock() {
         this.output = new OutputNumericPort();
