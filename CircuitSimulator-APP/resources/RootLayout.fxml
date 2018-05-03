@@ -1,27 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.SplitPane?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
-
-<fx:root fx:id="root_pane" prefHeight="100.0" stylesheets="@application.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<fx:root xmlns:fx="http://javafx.com/fxml/1" type="AnchorPane" xmlns="http://javafx.com/javafx/8">
    <children>
-       <VBox xmlns:fx="http://javafx.com/fxml/1">
+       <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+             AnchorPane.topAnchor="0.0">
          <children>
-             <Pane minHeight="25.0">
+             <HBox maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="340.0"
+                   prefHeight="25.0" prefWidth="454.0">
                  <children>
-                     <Button layoutX="523.0" mnemonicParsing="false" prefWidth="85.0" text="Reset" />
-                     <Button disable="true" mnemonicParsing="false" prefHeight="25.0" prefWidth="267.0" />
-                     <Button disable="true" layoutX="607.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="293.0" />
-                     <Button layoutX="353.0" mnemonicParsing="false" prefWidth="85.0" text="Start/Stop" />
-                     <Button layoutX="268.0" mnemonicParsing="false" prefWidth="85.0" text="Step" />
+                     <Button disable="true" maxHeight="-Infinity" maxWidth="1.7976931348623157E308"
+                             minHeight="-Infinity" minWidth="0.0" mnemonicParsing="false" prefHeight="25.0"
+                             HBox.hgrow="ALWAYS"/>
+                     <Button layoutX="268.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+                             minWidth="-Infinity" mnemonicParsing="false" onAction="#StepClicked" prefHeight="25.0"
+                             prefWidth="85.0" text="Step"/>
+                     <Button layoutX="353.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+                             minWidth="-Infinity" mnemonicParsing="false" onAction="#StartStopClicked" prefHeight="25.0"
+                             prefWidth="85.0" text="Start/Stop"/>
+                     <TextField fx:id="msPerTick" layoutX="438.0" maxHeight="-Infinity" maxWidth="-Infinity"
+                                minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="85.0"
+                                promptText="Speed [ms]"/>
+                     <Button layoutX="523.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+                             minWidth="-Infinity" mnemonicParsing="false" onAction="#ResetClicked" prefHeight="25.0"
+                             prefWidth="85.0" text="Reset"/>
+                     <Button disable="true" layoutX="607.0" maxHeight="-Infinity" maxWidth="1.7976931348623157E308"
+                             minHeight="-Infinity" minWidth="0.0" mnemonicParsing="false" prefHeight="25.0"
+                             HBox.hgrow="ALWAYS"/>
                  </children>
-             </Pane>
-            <SplitPane fx:id="base_pane" dividerPositions="0.15795724465558195, 0.8705463182897862" maxHeight="-Infinity" maxWidth="-Infinity">
+             </HBox>
+             <SplitPane fx:id="base_pane" dividerPositions="0.15795724465558195, 0.8705463182897862"
+                        VBox.vgrow="ALWAYS">
               <items>
                   <ScrollPane maxWidth="130.0" minWidth="130.0" prefViewportHeight="551.0" prefViewportWidth="135.0"
                               prefWidth="120.0">
@@ -32,7 +43,12 @@
                         <VBox fx:id="left_pane" spacing="10.0" />
                      </content>
                   </ScrollPane>
-                <AnchorPane fx:id="right_pane" minHeight="-1.0" minWidth="-1.0" prefHeight="545.0" prefWidth="430.0" />
+                  <ScrollPane prefViewportHeight="557.0" prefViewportWidth="459.0">
+                      <content>
+                          <AnchorPane fx:id="right_pane" minHeight="-1.0" minWidth="-1.0" prefHeight="545.0"
+                                      prefWidth="430.0"/>
+                      </content>
+                  </ScrollPane>
                   <ScrollPane hbarPolicy="NEVER" prefHeight="-1.0" prefWidth="-1.0">
                   <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />

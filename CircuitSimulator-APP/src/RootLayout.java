@@ -1,13 +1,19 @@
-import java.io.IOException;
-
+import Workspace.Workspace;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Point2D;
 import javafx.scene.control.SplitPane;
-import javafx.scene.input.*;
+import javafx.scene.control.TextField;
+import javafx.scene.input.ClipboardContent;
+import javafx.scene.input.DragEvent;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.input.TransferMode;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+
+import java.io.IOException;
 
 public class RootLayout extends AnchorPane{
 
@@ -22,13 +28,17 @@ public class RootLayout extends AnchorPane{
 	private EventHandler<DragEvent> mIconDragOverRightPane = null;
     private WorkSpaceConnector workspaceConnector;
 
+	private Workspace workspace;
+	@FXML
+	private TextField msPerTick;
+
     public RootLayout() {
 		
 		FXMLLoader fxmlLoader = new FXMLLoader(
 				getClass().getResource("/RootLayout.fxml")
 				);
-		
-		fxmlLoader.setRoot(this); 
+
+		fxmlLoader.setRoot(this);
 		fxmlLoader.setController(this);
 		
 		try { 
@@ -61,6 +71,7 @@ public class RootLayout extends AnchorPane{
 		buildDragHandlers();
 
 		workspaceConnector=new WorkSpaceConnector(right_pane);
+		workspace = new Workspace();
 	}
 	
 	private void addDragDetection(GuiBlock block) {
@@ -187,6 +198,33 @@ public class RootLayout extends AnchorPane{
 				event.consume();
 			}
 		});
+	}
+
+	private boolean isNumeric(String s) {
+		return s != null && s.matches("^[0-9]+$");
+	}
+
+	@FXML
+	public void StartStopClicked(ActionEvent actionEvent) {
+		if (workspace.GetIsRunning()) {
+			workspace.Break();
+		} else {
+			if (isNumeric(msPerTick.getText())) {
+				workspace.Run(Integer.parseInt(msPerTick.getText()));
+			} else {
+				workspace.Run();
+			}
+		}
+	}
+
+	@FXML
+	public void ResetClicked(ActionEvent actionEvent) {
+		workspace.Reset();
+	}
+
+	@FXML
+	public void StepClicked(ActionEvent actionEvent) {
+		workspace.Step();
 	}
 	/*
 	public void buildSplitPaneDragHandlers() {
