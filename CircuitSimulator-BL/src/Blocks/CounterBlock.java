@@ -41,4 +41,9 @@ public class CounterBlock extends BlockBase {
         lastValue = input.DownloadData().Data;
         output.Send(new NumericData(counter));
     }
+
+    @Override
+    public void SaveData() {
+
+    }
 }

@@ -8,6 +8,7 @@ public class LogicNOTBlock extends BlockBase {
 
     private InputBooleanPort input;
     private OutputBooleanPort output;
+    private BooleanData firstPortData;
 
     public LogicNOTBlock() {
         this.input = new InputBooleanPort();
@@ -18,8 +19,12 @@ public class LogicNOTBlock extends BlockBase {
 
     @Override
     public void Execute() {
-        boolean result = !input.DownloadData().Data;
+        boolean result = !firstPortData.Data;
         output.Send(new BooleanData(result));
     }
 
+    @Override
+    public void SaveData() {
+        firstPortData = input.DownloadData();
+    }
 }

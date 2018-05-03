@@ -18,4 +18,9 @@ public class LogicalOutputBlock extends BlockBase {
     public void Execute() {
 
     }
+
+    @Override
+    public void SaveData() {
+
+    }
 }

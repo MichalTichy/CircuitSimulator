@@ -63,17 +63,26 @@ public abstract class BlockBase implements IBlock {
 
     @Override
     public void ProcessTick() {
-        boolean execute = false;
-        if(inputPorts.isEmpty())    execute = true;
+        if (status == BlockStatus.Working) {
+            this.Execute();
+            status = BlockStatus.Idle;
+            return;
+        }
+
+        boolean change = false;
+        if (inputPorts.isEmpty()) change = true;
         for (IInputPort port: inputPorts) {
-            if(port.GetWhetherDataChanged()){
-                execute = true;
+            if (port.GetData() == null) {
+                change = false;
                 break;
             }
+            if(port.GetWhetherDataChanged()){
+                change = true;
+            }
         }
-        if (execute){
+        if (change) {
+            SaveData();
             status = BlockStatus.Working;
-            this.Execute();
         }else{
             status = BlockStatus.Idle;
         }

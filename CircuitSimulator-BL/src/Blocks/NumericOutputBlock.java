@@ -16,6 +16,11 @@ public class NumericOutputBlock extends BlockBase {
 
     @Override
     public void Execute() {
+        System.out.println(GetValue());
+    }
+
+    @Override
+    public void SaveData() {
 
     }
 }

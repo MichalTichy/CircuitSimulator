@@ -18,8 +18,13 @@ public class ClockBlock extends BlockBase {
 
     @Override
     public void ProcessTick() {
-        if (enable.DownloadData().Data) {
+        if (status == BlockStatus.Working) {
             Execute();
+            status = BlockStatus.Idle;
+            return;
+        }
+        if (enable.DownloadData().Data) {
+            status = BlockStatus.Working;
         } else {
             output.Send(new BooleanData(false));
         }
@@ -35,5 +40,10 @@ public class ClockBlock extends BlockBase {
     public void Execute() {
         value = !value;
         output.Send(new BooleanData(value));
+    }
+
+    @Override
+    public void SaveData() {
+
     }
 }

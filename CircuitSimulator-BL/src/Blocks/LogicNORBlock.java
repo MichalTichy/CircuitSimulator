@@ -9,6 +9,8 @@ public class LogicNORBlock extends BlockBase {
     private InputBooleanPort input1;
     private InputBooleanPort input2;
     private OutputBooleanPort output;
+    private BooleanData firstPortData;
+    private BooleanData secondPortData;
 
     public LogicNORBlock() {
         this.input1 = new InputBooleanPort();
@@ -21,8 +23,13 @@ public class LogicNORBlock extends BlockBase {
 
     @Override
     public void Execute() {
-        boolean result = !(input1.DownloadData().Data || input2.DownloadData().Data);
+        boolean result = !(firstPortData.Data || secondPortData.Data);
         output.Send(new BooleanData(result));
     }
 
+    @Override
+    public void SaveData() {
+        firstPortData = input1.DownloadData();
+        secondPortData = input2.DownloadData();
+    }
 }

@@ -11,7 +11,13 @@ public abstract class InputPortBase extends PortBase implements IInputPort {
     }
 
     @Override
+    public IData GetData() {
+        return currentData;
+    }
+
+    @Override
     public boolean GetWhetherDataChanged(){
+        if (currentData == null) return false;
         return !(currentData == previousData);
     }
 

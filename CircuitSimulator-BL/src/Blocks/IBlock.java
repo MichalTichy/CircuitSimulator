@@ -18,5 +18,7 @@ public interface IBlock extends IValidatable,IResetable,ITimeTickConsumer {
     Point2D getPosition();
 
     void setPosition(Point2D p);
+
+    void SaveData();
 }
 

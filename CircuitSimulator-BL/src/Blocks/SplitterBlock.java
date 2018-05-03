@@ -1,5 +1,6 @@
 package Blocks;
 
+import Data.IData;
 import Ports.InputAnyPort;
 import Ports.OutputAnyPort;
 
@@ -8,6 +9,7 @@ public class SplitterBlock extends BlockBase {
     private InputAnyPort input;
     private OutputAnyPort output1;
     private OutputAnyPort output2;
+    private IData firstPortData;
 
     public SplitterBlock() {
         this.input = new InputAnyPort();
@@ -20,8 +22,12 @@ public class SplitterBlock extends BlockBase {
 
     @Override
     public void Execute() {
-        output1.Send(input.DownloadData());
-        output2.Send(input.DownloadData());
+        output1.Send(firstPortData);
+        output2.Send(firstPortData);
     }
 
+    @Override
+    public void SaveData() {
+        firstPortData = input.DownloadData();
+    }
 }

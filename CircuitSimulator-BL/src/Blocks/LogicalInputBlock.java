@@ -20,14 +20,28 @@ public class LogicalInputBlock extends BlockBase {
     @Override
     public void ProcessTick() {
         if (!executed) {
+            status = BlockStatus.Working;
             this.executed = true;
             Execute();
+        } else {
+            status = BlockStatus.Idle;
         }
+    }
+
+    @Override
+    public void Reset() {
+        executed = false;
+        super.Reset();
     }
 
     @Override
     public void Execute() {
         output.Send(new BooleanData(value));
+    }
+
+    @Override
+    public void SaveData() {
+
     }
 }
 
