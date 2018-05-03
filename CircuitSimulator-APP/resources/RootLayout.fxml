@@ -34,24 +34,27 @@
              <SplitPane fx:id="base_pane" dividerPositions="0.15795724465558195, 0.8705463182897862"
                         VBox.vgrow="ALWAYS">
               <items>
-                  <ScrollPane maxWidth="130.0" minWidth="130.0" prefViewportHeight="551.0" prefViewportWidth="135.0"
-                              prefWidth="120.0">
+                  <ScrollPane fitToWidth="true" maxWidth="130.0" minWidth="130.0" prefViewportHeight="551.0"
+                              prefViewportWidth="135.0" prefWidth="120.0" style="-fx-background-color: lightgrey;">
                      <padding>
                         <Insets left="8.0" top="6.0" />
                      </padding>
                      <content>
-                        <VBox fx:id="left_pane" spacing="10.0" />
+                         <VBox fx:id="left_pane" fillWidth="false" spacing="10.0"
+                               style="-fx-background-color: lightgrey;"/>
                      </content>
                   </ScrollPane>
-                  <ScrollPane prefViewportHeight="557.0" prefViewportWidth="459.0">
+                  <ScrollPane fitToHeight="true" fitToWidth="true" prefViewportHeight="557.0" prefViewportWidth="459.0">
                       <content>
-                          <AnchorPane fx:id="right_pane" minHeight="-1.0" minWidth="-1.0" prefHeight="545.0"
-                                      prefWidth="430.0"/>
+                          <AnchorPane fx:id="right_pane" minHeight="-1.0" minWidth="-1.0"/>
                       </content>
                   </ScrollPane>
-                  <ScrollPane hbarPolicy="NEVER" prefHeight="-1.0" prefWidth="-1.0">
+                  <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" maxWidth="-Infinity"
+                              minWidth="-Infinity" prefHeight="-1.0" prefWidth="120.0"
+                              style="-fx-background-color: lightgrey;">
                   <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
+                      <AnchorPane maxWidth="-Infinity" minWidth="-Infinity" prefWidth="120.0"
+                                  style="-fx-background-color: lightgrey;"/>
                   </content>
               </ScrollPane>
               </items>

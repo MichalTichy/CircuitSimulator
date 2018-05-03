@@ -1,4 +1,3 @@
-import Workspace.Workspace;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -28,7 +27,6 @@ public class RootLayout extends AnchorPane{
 	private EventHandler<DragEvent> mIconDragOverRightPane = null;
     private WorkSpaceConnector workspaceConnector;
 
-	private Workspace workspace;
 	@FXML
 	private TextField msPerTick;
 
@@ -71,7 +69,6 @@ public class RootLayout extends AnchorPane{
 		buildDragHandlers();
 
 		workspaceConnector=new WorkSpaceConnector(right_pane);
-		workspace = new Workspace();
 	}
 	
 	private void addDragDetection(GuiBlock block) {
@@ -206,25 +203,25 @@ public class RootLayout extends AnchorPane{
 
 	@FXML
 	public void StartStopClicked(ActionEvent actionEvent) {
-		if (workspace.GetIsRunning()) {
-			workspace.Break();
+		if (workspaceConnector.GetIsRunning()) {
+			workspaceConnector.Break();
 		} else {
 			if (isNumeric(msPerTick.getText())) {
-				workspace.Run(Integer.parseInt(msPerTick.getText()));
+				workspaceConnector.Run(Integer.parseInt(msPerTick.getText()));
 			} else {
-				workspace.Run();
+				workspaceConnector.Run();
 			}
 		}
 	}
 
 	@FXML
 	public void ResetClicked(ActionEvent actionEvent) {
-		workspace.Reset();
+		workspaceConnector.Reset();
 	}
 
 	@FXML
 	public void StepClicked(ActionEvent actionEvent) {
-		workspace.Step();
+		workspaceConnector.Step();
 	}
 	/*
 	public void buildSplitPaneDragHandlers() {

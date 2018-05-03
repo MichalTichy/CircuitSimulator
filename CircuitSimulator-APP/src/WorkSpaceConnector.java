@@ -214,4 +214,28 @@ public class WorkSpaceConnector {
     private void AddInputsAndOutputs(){
 
     }
+
+    public boolean GetIsRunning() {
+        return workspace.GetIsRunning();
+    }
+
+    public void Break() {
+        workspace.Break();
+    }
+
+    public void Step() {
+        workspace.Step();
+    }
+
+    public void Reset() {
+        workspace.Reset();
+    }
+
+    public void Run() {
+        workspace.Run();
+    }
+
+    public void Run(int i) {
+        workspace.Run(i);
+    }
 }
