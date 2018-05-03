@@ -1,23 +1,32 @@
 import Blocks.*;
+import Common.ITimeTickConsumer;
 import Ports.*;
 import Workspace.IWorkspace;
 import Workspace.Workspace;
+import javafx.application.Platform;
 import javafx.geometry.Point2D;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.shape.Line;
 
 import java.util.Collection;
 import java.util.HashMap;
 
-public class WorkSpaceConnector {
+public class WorkSpaceConnector implements ITimeTickConsumer {
     private IWorkspace workspace = new Workspace();
     private AnchorPane workPane;
+    private VBox IOPane;
 
     private static HashMap<GuiPort,Line> connections=new HashMap<>();
 
-    public WorkSpaceConnector(AnchorPane workPane) {
+    public WorkSpaceConnector(AnchorPane workPane, VBox IO_pane) {
 
         this.workPane = workPane;
+        workspace.Subscribe(this);
+        this.IOPane = IO_pane;
     }
 
     public Collection<IBlock> GetBlocks(){
@@ -98,7 +107,9 @@ public class WorkSpaceConnector {
                         break;
                     case AnyOutput:
                         ((OutputAnyPort)connectionSource.port).Connect((InputNumericPort)connectionTarget.port);
-                    default: throw new IllegalArgumentException();
+                        break;
+                    default:
+                        throw new IllegalArgumentException();
                 }
                 break;
             case NumericOutput:
@@ -108,6 +119,7 @@ public class WorkSpaceConnector {
                         break;
                     case AnyInput:
                         ((InputAnyPort)connectionSource.port).Connect((OutputNumericPort)connectionTarget.port);
+                        break;
                     default: throw new IllegalArgumentException();
                 }
                 break;
@@ -118,16 +130,18 @@ public class WorkSpaceConnector {
                         break;
                     case AnyOutput:
                         ((OutputAnyPort)connectionSource.port).Connect((InputBooleanPort)connectionTarget.port);
+                        break;
                     default: throw new IllegalArgumentException();
                 }
                 break;
             case LogicalOutput:
                 switch (connectionSource.GetType()) {
-                    case LogicalOutput:
+                    case LogicalInput:
                         ((OutputBooleanPort)connectionTarget.port).Connect((InputBooleanPort) connectionSource.port);
                         break;
                     case AnyInput:
                         ((InputAnyPort)connectionSource.port).Connect((OutputBooleanPort)connectionTarget.port);
+                        break;
                     default: throw new IllegalArgumentException();
                 }
                 break;
@@ -136,7 +150,7 @@ public class WorkSpaceConnector {
                     case LogicalOutput:
                     case NumericOutput:
                     case AnyOutput:
-                        ((InputAnyPort)connectionSource.port).Connect((OutputPortBase) connectionTarget.port);
+                        ((InputAnyPort) connectionTarget.port).Connect((OutputPortBase) connectionSource.port);
                         break;
                     default: throw new IllegalArgumentException();
                 }
@@ -146,7 +160,7 @@ public class WorkSpaceConnector {
                     case LogicalInput:
                     case NumericInput:
                     case AnyInput:
-                        ((OutputAnyPort)connectionSource.port).Connect((InputPortBase) connectionTarget.port);
+                        ((OutputAnyPort) connectionTarget.port).Connect((InputPortBase) connectionSource.port);
                         break;
                     default: throw new IllegalArgumentException();
                 }
@@ -157,7 +171,9 @@ public class WorkSpaceConnector {
 
     public void DrawWorkspace(){
         workPane.getChildren().clear();
+        IOPane.getChildren().clear();
         connections.clear();
+        GuiBlock.blocks.clear();
 
         for (IBlock block:GetBlocks()) {
             GuiBlock guiBlock = new GuiBlock(block,this);
@@ -212,7 +228,39 @@ public class WorkSpaceConnector {
     }
 
     private void AddInputsAndOutputs(){
-
+        for (IBlock block : workspace.GetBlocks()) {
+            if (block instanceof LogicalInputBlock) {
+                CheckBox checkBox = new CheckBox("Logical Input");
+                checkBox.setSelected(((LogicalInputBlock) block).GetValue());
+                IOPane.getChildren().add(checkBox);
+                checkBox.setOnAction(event -> ((LogicalInputBlock) block).SetValue(checkBox.isSelected()));
+            } else if (block instanceof NumericInputBlock) {
+                Label label = new Label("Numeric Input");
+                IOPane.getChildren().add(label);
+                TextField textField = new TextField();
+                textField.setText(Double.toString(((NumericInputBlock) block).getValue()));
+                IOPane.getChildren().add(textField);
+                textField.setOnAction(event -> {
+                    String text = textField.getText();
+                    if (text != null && text.matches("^[0-9]+$")) {
+                        ((NumericInputBlock) block).SetValue(Double.parseDouble(textField.getText()));
+                    } else {
+                        event.consume();
+                    }
+                });
+            }
+        }
+        for (IBlock block : GuiBlock.blocks.keySet()) {
+            if (block instanceof LogicalOutputBlock) {
+                Label label = new Label();
+                label.setText("Logical output: " + ((LogicalOutputBlock) block).GetValue());
+                IOPane.getChildren().add(label);
+            } else if (block instanceof NumericOutputBlock) {
+                Label label = new Label();
+                label.setText("Numeric output: " + ((NumericOutputBlock) block).GetValue());
+                IOPane.getChildren().add(label);
+            }
+        }
     }
 
     public boolean GetIsRunning() {
@@ -237,5 +285,15 @@ public class WorkSpaceConnector {
 
     public void Run(int i) {
         workspace.Run(i);
+    }
+
+    @Override
+    public boolean IsPriorityConsumer() {
+        return false;
+    }
+
+    @Override
+    public void ProcessTick() {
+        Platform.runLater(() -> DrawWorkspace());
     }
 }

@@ -6,4 +6,6 @@ public interface IInputPort extends IPort {
     boolean GetWhetherDataChanged();
 
     IData GetData();
+
+    void SetDefaultValue();
 }

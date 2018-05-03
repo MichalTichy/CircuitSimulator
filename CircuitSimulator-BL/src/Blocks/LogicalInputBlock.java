@@ -10,6 +10,11 @@ public class LogicalInputBlock extends BlockBase {
 
     public void SetValue(boolean value) {
         this.value = value;
+        executed = false;
+    }
+
+    public boolean GetValue() {
+        return value;
     }
 
     public LogicalInputBlock() {
@@ -19,10 +24,13 @@ public class LogicalInputBlock extends BlockBase {
 
     @Override
     public void ProcessTick() {
+        if (status == BlockStatus.Working) {
+            Execute();
+            status = BlockStatus.Idle;
+        }
         if (!executed) {
             status = BlockStatus.Working;
             this.executed = true;
-            Execute();
         } else {
             status = BlockStatus.Idle;
         }

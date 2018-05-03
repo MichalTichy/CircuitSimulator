@@ -10,4 +10,10 @@ public class InputNumericPort extends InputPortBase {
     public NumericData DownloadData() {
         return (NumericData) downloadData();
     }
+
+    @Override
+    public void SetDefaultValue() {
+        currentData = new NumericData(0);
+        previousData = new NumericData(0);
+    }
 }

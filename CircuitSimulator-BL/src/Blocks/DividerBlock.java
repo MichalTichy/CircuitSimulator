@@ -23,6 +23,9 @@ public class DividerBlock extends BlockBase {
 
     @Override
     public void Execute() {
+        if (secondPortData.Data == 0) {
+            return;
+        }
         double result = firstPortData.Data / secondPortData.Data;
         output.Send(new NumericData(result));
     }

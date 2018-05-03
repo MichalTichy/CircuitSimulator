@@ -3,8 +3,8 @@ package Ports;
 import Data.IData;
 
 public abstract class InputPortBase extends PortBase implements IInputPort {
-    private IData currentData;
-    private IData previousData;
+    protected IData currentData;
+    protected IData previousData;
 
     protected void ReceiveData(IData data) {
         this.currentData = data;
@@ -18,7 +18,7 @@ public abstract class InputPortBase extends PortBase implements IInputPort {
     @Override
     public boolean GetWhetherDataChanged(){
         if (currentData == null) return false;
-        return !(currentData == previousData);
+        return !(currentData.equals(previousData));
     }
 
     protected IData downloadData() {

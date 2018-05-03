@@ -73,8 +73,7 @@ public abstract class BlockBase implements IBlock {
         if (inputPorts.isEmpty()) change = true;
         for (IInputPort port: inputPorts) {
             if (port.GetData() == null) {
-                change = false;
-                break;
+                port.SetDefaultValue();
             }
             if(port.GetWhetherDataChanged()){
                 change = true;

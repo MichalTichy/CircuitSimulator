@@ -18,6 +18,8 @@ public class RootLayout extends AnchorPane{
 
 	@FXML SplitPane base_pane;
 	@FXML AnchorPane right_pane;
+	@FXML
+	VBox IO_pane;
 	@FXML VBox left_pane;
 
 	private GuiBlock mDragOverIcon = null;
@@ -68,7 +70,7 @@ public class RootLayout extends AnchorPane{
 		
 		buildDragHandlers();
 
-		workspaceConnector=new WorkSpaceConnector(right_pane);
+		workspaceConnector = new WorkSpaceConnector(right_pane, IO_pane);
 	}
 	
 	private void addDragDetection(GuiBlock block) {

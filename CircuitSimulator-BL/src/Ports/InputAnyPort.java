@@ -53,4 +53,9 @@ public class InputAnyPort extends InputPortBase {
                 return false;
         }
     }
+
+    @Override
+    public void SetDefaultValue() {
+
+    }
 }

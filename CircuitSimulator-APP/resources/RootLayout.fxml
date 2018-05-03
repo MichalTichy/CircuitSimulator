@@ -50,11 +50,11 @@
                       </content>
                   </ScrollPane>
                   <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" maxWidth="-Infinity"
-                              minWidth="-Infinity" prefHeight="-1.0" prefWidth="120.0"
+                              minWidth="-Infinity" prefHeight="-1.0" prefWidth="135.0"
                               style="-fx-background-color: lightgrey;">
                   <content>
-                      <AnchorPane maxWidth="-Infinity" minWidth="-Infinity" prefWidth="120.0"
-                                  style="-fx-background-color: lightgrey;"/>
+                      <VBox fx:id="IO_pane" maxWidth="-Infinity" prefWidth="135.0"
+                            style="-fx-background-color: lightgrey;"/>
                   </content>
               </ScrollPane>
               </items>

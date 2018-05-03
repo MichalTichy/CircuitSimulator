@@ -48,7 +48,7 @@ public class Workspace implements IWorkspace {
     public void Run(int msPerTick) { //TODO check multiple runs
         isRunning = true;
         timer = new Timer();
-        timer.schedule(new TimerTask() {
+        timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
                 Step();

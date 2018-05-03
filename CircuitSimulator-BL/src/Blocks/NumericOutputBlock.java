@@ -1,5 +1,6 @@
 package Blocks;
 
+import Data.NumericData;
 import Ports.InputNumericPort;
 
 public class NumericOutputBlock extends BlockBase {
@@ -11,7 +12,18 @@ public class NumericOutputBlock extends BlockBase {
     }
 
     public double GetValue() {
-        return input.DownloadData().Data;
+        if (input.GetWhetherDataChanged()) {
+            status = BlockStatus.Working;
+        } else {
+            status = BlockStatus.Idle;
+        }
+        NumericData data = input.DownloadData();
+        if (data == null) return 0;
+        return data.Data;
+    }
+
+    @Override
+    public void ProcessTick() {
     }
 
     @Override

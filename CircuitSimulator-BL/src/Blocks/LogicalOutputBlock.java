@@ -1,5 +1,6 @@
 package Blocks;
 
+import Data.BooleanData;
 import Ports.InputBooleanPort;
 
 public class LogicalOutputBlock extends BlockBase {
@@ -11,7 +12,19 @@ public class LogicalOutputBlock extends BlockBase {
     }
 
     public boolean GetValue() {
-        return input.DownloadData().Data;
+        if (input.GetWhetherDataChanged()) {
+            status = BlockStatus.Working;
+        } else {
+            status = BlockStatus.Idle;
+        }
+        BooleanData data = input.DownloadData();
+        if (data == null) return false;
+        return data.Data;
+    }
+
+    @Override
+    public void ProcessTick() {
+
     }
 
     @Override
