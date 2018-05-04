@@ -3,6 +3,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Point2D;
+import javafx.scene.control.Label;
 import javafx.scene.control.SplitPane;
 import javafx.scene.control.TextField;
 import javafx.scene.input.ClipboardContent;
@@ -21,6 +22,10 @@ public class RootLayout extends AnchorPane{
 	@FXML
 	VBox IO_pane;
 	@FXML VBox left_pane;
+	@FXML
+	Label statusLabel;
+	@FXML
+	Label valueLabel;
 
 	private GuiBlock mDragOverIcon = null;
 	
@@ -69,8 +74,9 @@ public class RootLayout extends AnchorPane{
 		}
 		
 		buildDragHandlers();
-
-		workspaceConnector = new WorkSpaceConnector(right_pane, IO_pane);
+		statusLabel.setText("Status: Stopped");
+		valueLabel.setText("Value: ");
+		workspaceConnector = new WorkSpaceConnector(right_pane, IO_pane, statusLabel, valueLabel);
 	}
 	
 	private void addDragDetection(GuiBlock block) {
@@ -206,8 +212,10 @@ public class RootLayout extends AnchorPane{
 	@FXML
 	public void StartStopClicked(ActionEvent actionEvent) {
 		if (workspaceConnector.GetIsRunning()) {
+			statusLabel.setText("Status: Stopped");
 			workspaceConnector.Break();
 		} else {
+			statusLabel.setText("Status: Running");
 			if (isNumeric(msPerTick.getText())) {
 				workspaceConnector.Run(Integer.parseInt(msPerTick.getText()));
 			} else {

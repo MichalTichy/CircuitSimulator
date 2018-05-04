@@ -59,6 +59,26 @@
               </ScrollPane>
               </items>
             </SplitPane>
+             <AnchorPane VBox.vgrow="ALWAYS">
+                 <children>
+                     <Label fx:id="valueLabel" alignment="BASELINE_CENTER" layoutX="53.0" maxHeight="-Infinity"
+                            minHeight="-Infinity" prefHeight="16.0" prefWidth="69.0" AnchorPane.leftAnchor="1.0"
+                            AnchorPane.rightAnchor="1.0" HBox.hgrow="ALWAYS">
+                         <HBox.margin>
+                             <Insets/>
+                         </HBox.margin>
+                     </Label>
+                     <Label alignment="BASELINE_RIGHT" layoutX="122.0" maxHeight="-Infinity" minHeight="-Infinity"
+                            prefHeight="16.0" prefWidth="193.0" text="Authors: Prášek Matěj, Tichý Mchal"
+                            AnchorPane.rightAnchor="3.0" HBox.hgrow="ALWAYS"/>
+                     <Label fx:id="statusLabel" alignment="BASELINE_LEFT" maxHeight="-Infinity" minHeight="-Infinity"
+                            prefHeight="16.0" prefWidth="135.0" AnchorPane.leftAnchor="3.0" HBox.hgrow="ALWAYS">
+                         <HBox.margin>
+                             <Insets/>
+                         </HBox.margin>
+                     </Label>
+                 </children>
+             </AnchorPane>
          </children>
       </VBox>
    </children>

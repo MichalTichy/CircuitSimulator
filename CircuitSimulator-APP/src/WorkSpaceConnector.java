@@ -1,5 +1,8 @@
 import Blocks.*;
 import Common.ITimeTickConsumer;
+import Data.BooleanData;
+import Data.IData;
+import Data.NumericData;
 import Ports.*;
 import Workspace.IWorkspace;
 import Workspace.Workspace;
@@ -19,14 +22,18 @@ public class WorkSpaceConnector implements ITimeTickConsumer {
     private IWorkspace workspace = new Workspace();
     private AnchorPane workPane;
     private VBox IOPane;
+    private Label statusLabel;
+    private Label valueLabel;
 
     private static HashMap<GuiPort,Line> connections=new HashMap<>();
 
-    public WorkSpaceConnector(AnchorPane workPane, VBox IO_pane) {
+    public WorkSpaceConnector(AnchorPane workPane, VBox IO_pane, Label statusLabel, Label valueLabel) {
 
         this.workPane = workPane;
         workspace.Subscribe(this);
         this.IOPane = IO_pane;
+        this.statusLabel = statusLabel;
+        this.valueLabel = valueLabel;
     }
 
     public Collection<IBlock> GetBlocks(){
@@ -205,6 +212,21 @@ public class WorkSpaceConnector implements ITimeTickConsumer {
         connections.put(destination,connection);
 
         UpdateConnection(source,destination);
+
+        IData data = ((InputPortBase) source.port).GetData();
+
+        if (data instanceof NumericData) {
+            connection.setOnMouseEntered(event -> valueLabel.setText("Value: " + Double.toString(((NumericData) data).Data)));
+            connection.setOnMouseExited(event -> valueLabel.setText("Value: "));
+        } else if (data instanceof BooleanData) {
+            connection.setOnMouseEntered(event -> valueLabel.setText("Value: " + Boolean.toString(((BooleanData) data).Data)));
+            connection.setOnMouseExited(event -> valueLabel.setText("Value: "));
+        } else if (data == null) {
+            connection.setOnMouseEntered(event -> valueLabel.setText("Value: none"));
+            connection.setOnMouseExited(event -> valueLabel.setText("Value: "));
+        } else {
+            throw new IllegalArgumentException();
+        }
     }
     public void UpdateConnection(GuiPort port) {
         Line connection=connections.get(port);
