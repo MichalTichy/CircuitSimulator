@@ -348,21 +348,23 @@
   </target>
   
   <target name="clean" depends="clean.module.circuitsimulator, clean.module.circuitsimulator-bl, clean.module.circuitsimulator-app" description="cleanup all">
-    <delete file="ija-client.jar"/>
+      <delete file="${module.circuitsimulator-app.basedir}/dest-client/ija-client.jar"/>
   </target>
   
   <target name="build.modules" depends="init, clean, compile.module.circuitsimulator, compile.module.circuitsimulator-bl, compile.module.circuitsimulator-app" description="build all modules"/>
-  
-  <target name="compile" depends="build.modules" description="build all"/>
 
-  <target name="run" depends="build.modules" description="run">
-    <jar destfile = "${module.circuitsimulator-app.basedir}/ija-client.jar"
-         basedir = "${circuitsimulator-app.output.dir}"
-         includes="**/*">
-      <manifest>
-        <attribute name = "Main-Class" value = "Gui.Main"/>
-      </manifest>
-    </jar>
-      <java jar="${module.circuitsimulator-app.basedir}/ija-client.jar" fork="true"/>
+    <target name="compile" depends="build.modules" description="build all">
+        <jar destfile="${module.circuitsimulator-app.basedir}/dest-client/ija-client.jar"
+             basedir="${circuitsimulator-app.output.dir}"
+             includes="**/*">
+            <manifest>
+                <attribute name="Main-Class" value="Gui.Main"/>
+            </manifest>
+        </jar>
+    </target>
+
+    <target name="run" depends="compile" description="run">
+
+        <java jar="${module.circuitsimulator-app.basedir}/dest-client/ija-client.jar" fork="true"/>
   </target>
 </project>
