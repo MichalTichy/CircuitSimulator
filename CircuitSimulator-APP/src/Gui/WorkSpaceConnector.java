@@ -221,11 +221,12 @@ public class WorkSpaceConnector implements ITimeTickConsumer {
      * Method that draw entire workspace
      */
     public void DrawWorkspace(){
+
         workPane.getChildren().clear();
         IOPane.getChildren().clear();
         connections.clear();
         GuiBlock.blocks.clear();
-
+        GuiPort.ports.clear();
         for (IBlock block:GetBlocks()) {
             GuiBlock guiBlock = new GuiBlock(block,this);
             workPane.getChildren().add(guiBlock);
