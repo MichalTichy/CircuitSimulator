@@ -1,5 +1,5 @@
 package Gui; /**
- * Controller of GUI
+ * Controller of Gui
  *
  * @author Prášek Matěj - xprase07
  * @author Tichý Michal - xtichy26
@@ -8,9 +8,7 @@ package Gui; /**
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Label;
-import javafx.scene.control.SplitPane;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.ClipboardContent;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.TransferMode;
@@ -37,6 +35,14 @@ public class RootLayout extends AnchorPane {
     Label statusLabel;
     @FXML
     Label valueLabel;
+
+    @FXML
+    Button StepButton;
+    @FXML
+    Button ResetButton;
+
+    @FXML
+    Menu FileMenu;
 
     private GuiBlock mDragOverIcon = null;
 
@@ -228,8 +234,9 @@ public class RootLayout extends AnchorPane {
         if (workspaceConnector.GetIsRunning()) {
             statusLabel.setText("Status: Stopped");
             workspaceConnector.Break();
+            EnableToolbar(false);
         } else {
-
+            EnableToolbar(true);
             statusLabel.setText("Status: Running");
             if (isNumeric(msPerTick.getText())) {
                 workspaceConnector.Run(Integer.parseInt(msPerTick.getText()));
@@ -237,6 +244,18 @@ public class RootLayout extends AnchorPane {
                 workspaceConnector.Run();
             }
         }
+    }
+
+    /**
+     * Method that enable or disable toolbar
+     *
+     * @param enable true = enable, false = disable
+     */
+    public void EnableToolbar(boolean enable) {
+        FileMenu.setDisable(enable);
+        StepButton.setDisable(enable);
+        ResetButton.setDisable(enable);
+        msPerTick.setDisable(enable);
     }
 
     /**
