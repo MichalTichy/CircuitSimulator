@@ -8,6 +8,17 @@
        <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
              AnchorPane.topAnchor="0.0">
          <children>
+             <MenuBar>
+                 <menus>
+                     <Menu mnemonicParsing="false" text="File">
+                         <items>
+                             <MenuItem mnemonicParsing="false" onAction="#NewTemplate" text="New"/>
+                             <MenuItem mnemonicParsing="false" onAction="#LoadTemplate" text="Load"/>
+                             <MenuItem mnemonicParsing="false" onAction="#SaveTemplate" text="Save"/>
+                         </items>
+                     </Menu>
+                 </menus>
+             </MenuBar>
              <HBox maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="340.0"
                    prefHeight="25.0" prefWidth="454.0">
                  <children>

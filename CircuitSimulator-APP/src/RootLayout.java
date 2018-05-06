@@ -233,6 +233,21 @@ public class RootLayout extends AnchorPane{
 	public void StepClicked(ActionEvent actionEvent) {
 		workspaceConnector.Step();
 	}
+
+	@FXML
+	public void NewTemplate(ActionEvent actionEvent) {
+		//TODO new
+	}
+
+	@FXML
+	public void LoadTemplate(ActionEvent actionEvent) {
+		//TODO load
+	}
+
+	@FXML
+	public void SaveTemplate(ActionEvent actionEvent) {
+		//TODO save
+	}
 	/*
 	public void buildSplitPaneDragHandlers() {
 		
