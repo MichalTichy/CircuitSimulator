@@ -415,6 +415,7 @@ public class WorkSpaceConnector implements ITimeTickConsumer {
      * Method that create new workspace
      */
     public void NewWorkspace() {
+        if(workspace.GetIsRunning())    workspace.Break();
         workspace = new Workspace();
         workspace.Subscribe(this);
     }
@@ -425,6 +426,7 @@ public class WorkSpaceConnector implements ITimeTickConsumer {
      * @throws ClassNotFoundException if class of a serialized object cannot be found
      */
     public void LoadWorkspace(File file) throws ClassNotFoundException {
+        if(workspace.GetIsRunning())    workspace.Break();
         FileInputStream fileStream = null;
         try {
             fileStream = new FileInputStream(file);
@@ -443,6 +445,7 @@ public class WorkSpaceConnector implements ITimeTickConsumer {
      * @param file workspace file
      */
     public void SaveWorkspace(File file) {
+        if(workspace.GetIsRunning())    workspace.Break();
         try {
             FileOutputStream fileOut = new FileOutputStream(file);
             ObjectOutputStream out = new ObjectOutputStream(fileOut);

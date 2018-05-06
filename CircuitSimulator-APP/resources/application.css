@@ -2,6 +2,10 @@
 	-fx-border-width: 3;
 }
 
+.line{
+	-fx-stroke-width: 3;
+}
+
 .port {
 	-fx-background-color: blue;
 }

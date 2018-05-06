@@ -6,9 +6,10 @@
  */
 package Data;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class BooleanData implements IData{
+public class BooleanData implements IData,Serializable{
     public boolean Data;
 
     /**

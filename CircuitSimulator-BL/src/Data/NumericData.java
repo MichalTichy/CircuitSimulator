@@ -6,9 +6,10 @@
  */
 package Data;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class NumericData implements IData{
+public class NumericData implements IData,Serializable{
     public double Data;
 
     /**
