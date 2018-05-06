@@ -1,4 +1,4 @@
-/**
+package Gui; /**
  * GUI of port
  *
  * @author Prášek Matěj - xprase07

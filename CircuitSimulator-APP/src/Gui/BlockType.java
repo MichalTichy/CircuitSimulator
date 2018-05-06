@@ -1,3 +1,5 @@
+package Gui;
+
 /**
  * Block type Enum
  *

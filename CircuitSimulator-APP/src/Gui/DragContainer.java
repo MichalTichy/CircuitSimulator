@@ -1,4 +1,4 @@
-/**
+package Gui; /**
  * Drag and drop container class
  *
  * @author Prášek Matěj - xprase07

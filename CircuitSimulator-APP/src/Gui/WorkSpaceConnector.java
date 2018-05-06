@@ -1,4 +1,4 @@
-/**
+package Gui; /**
  * Connector with workspace in block logic module
  *
  * @author Prášek Matěj - xprase07
@@ -19,8 +19,6 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Line;
 
@@ -454,6 +452,7 @@ public class WorkSpaceConnector implements ITimeTickConsumer {
             out.writeObject(workspace);
 
             workspace.Subscribe(this);
+
             out.close();
             fileOut.close();
         } catch (IOException e) {

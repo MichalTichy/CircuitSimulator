@@ -1,4 +1,4 @@
-/**
+package Gui; /**
  * Controller of GUI
  *
  * @author Prášek Matěj - xprase07
@@ -110,7 +110,7 @@ public class RootLayout extends AnchorPane {
             right_pane.setOnDragOver(mIconDragOverRightPane);
             right_pane.setOnDragDropped(mIconDragDropped);
 
-            // get a reference to the clicked GuiBlock object
+            // get a reference to the clicked Gui.GuiBlock object
             GuiBlock icn = (GuiBlock) event.getSource();
 
             //begin drag ops

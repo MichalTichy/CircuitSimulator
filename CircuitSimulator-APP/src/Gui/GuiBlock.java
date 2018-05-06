@@ -1,4 +1,4 @@
-/**
+package Gui; /**
  * GUI of blocks
  *
  * @author Prášek Matěj - xprase07
