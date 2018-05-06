@@ -14,6 +14,7 @@ public class Workspace implements IWorkspace, Serializable {
     private Collection<IBlock> blocks = new ArrayList<>();
     private Timer timer;
     private boolean isRunning;
+    private int msPerTick=500;
 
     @Override
     public void AddBlock(IBlock block) {
@@ -30,6 +31,7 @@ public class Workspace implements IWorkspace, Serializable {
 
     @Override
     public void Reset() {
+        Break();
         for (IBlock block : blocks) {
             block.Reset();
         }
@@ -42,11 +44,12 @@ public class Workspace implements IWorkspace, Serializable {
 
     @Override
     public void Run() {
-        Run(500);
+        Run(msPerTick);
     }
 
     @Override
     public void Run(int msPerTick) {
+        this.msPerTick = msPerTick;
         isRunning = true;
         timer = new Timer();
         timer.scheduleAtFixedRate(new TimerTask() {
@@ -58,7 +61,7 @@ public class Workspace implements IWorkspace, Serializable {
     }
 
     @Override
-    public void Break() {
+    public void Break()  {
         timer.cancel();
         isRunning = false;
     }
@@ -105,5 +108,10 @@ public class Workspace implements IWorkspace, Serializable {
     @Override
     public boolean IsValid() {
         return getInvalidBlocks().isEmpty();
+    }
+
+    @Override
+    public void ClearTimer() {
+        timer=null;
     }
 }

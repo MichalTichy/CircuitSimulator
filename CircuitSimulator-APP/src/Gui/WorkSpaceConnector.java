@@ -452,6 +452,7 @@ public class WorkSpaceConnector implements ITimeTickConsumer {
 
             workspace.Unsubscribe(this);
 
+            workspace.ClearTimer();
             out.writeObject(workspace);
 
             workspace.Subscribe(this);

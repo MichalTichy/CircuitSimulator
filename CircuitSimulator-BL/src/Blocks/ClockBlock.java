@@ -33,7 +33,7 @@ public class ClockBlock extends BlockBase {
             return;
         }
         BooleanData data = enable.DownloadData();
-        if (data != null) {
+        if (data != null && data.Data) {
             status = BlockStatus.Working;
         } else {
             output.Send(new BooleanData(false));

@@ -77,4 +77,9 @@ public interface IWorkspace extends ITimeTickProvider, IResetable, IValidatable 
      * @return true if is valid, false otherwise
      */
     boolean IsValid();
+
+    /**
+     * Sets timer to null;
+     */
+    void ClearTimer();
 }
