@@ -10,7 +10,7 @@ import Data.IData;
 
 public interface IInputPort extends IPort {
     /**
-     * Method, that determines if port changed data
+     * Method that determines if port changed data
      *
      * @return true if port changed data, false otherwise
      */

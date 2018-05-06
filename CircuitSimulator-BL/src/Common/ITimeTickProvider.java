@@ -8,14 +8,14 @@ package Common;
 
 public interface ITimeTickProvider {
     /**
-     * Method, that subscribe tick consumer
+     * Method that subscribe tick consumer
      *
      * @param tickConsumer consumer, that will be added to subscribers list
      */
     void Subscribe(ITimeTickConsumer tickConsumer);
 
     /**
-     * Method, that unsubscribe tick consumer
+     * Method that unsubscribe tick consumer
      * @param tickConsumer consumer, that will be added to unsubscribers list
      */
     void Unsubscribe(ITimeTickConsumer tickConsumer);

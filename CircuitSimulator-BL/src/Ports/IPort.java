@@ -11,19 +11,19 @@ import Common.IValidatable;
 
 public interface IPort extends IResetable, IValidatable {
     /**
-     * Method, that disconnect port
+     * Method that disconnect port
      */
     void Disconnect();
 
     /**
-     * Method, that determines if is port connected
+     * Method that determines if is port connected
      *
      * @return true if is connected, false otherwise
      */
     boolean GetWhetherConnected();
 
     /**
-     * Method, that find connected port
+     * Method that find connected port
      * @return connected port
      */
     IPort getConnectedPort();

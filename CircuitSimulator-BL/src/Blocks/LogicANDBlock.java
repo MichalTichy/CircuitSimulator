@@ -19,7 +19,7 @@ public class LogicANDBlock extends BlockBase {
     private BooleanData secondPortData;
 
     /**
-     * Constructor, that create ports and adds them to collection
+     * Constructor that create ports and adds them to collection
      */
     public LogicANDBlock() {
         this.input1 = new InputBooleanPort();

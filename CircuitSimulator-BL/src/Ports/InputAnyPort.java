@@ -14,8 +14,7 @@ public class InputAnyPort extends InputPortBase {
     private DataType currentDataType = DataType.Any;
 
     /**
-     * Method, that connect to output port
-     *
+     * Method that connect to output port
      * @param port port to connect
      */
     public void Connect(OutputPortBase port) {
@@ -31,8 +30,8 @@ public class InputAnyPort extends InputPortBase {
     }
 
     /**
-     *
-     * @return
+     * Set previous data to current data and return it
+     * @return current data
      */
     public IData DownloadData() {
         return downloadData();

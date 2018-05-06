@@ -16,7 +16,7 @@ public class ClockBlock extends BlockBase {
     private boolean value;
 
     /**
-     * Constructor, that create ports and adds them to collection
+     * Constructor that create ports and adds them to collection
      */
     public ClockBlock() {
         this.enable = new InputBooleanPort();

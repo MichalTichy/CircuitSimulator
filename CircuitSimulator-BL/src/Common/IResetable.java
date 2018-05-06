@@ -8,7 +8,7 @@ package Common;
 
 public interface IResetable {
     /**
-     * Method, that do reset procedure
+     * Method that do reset procedure
      */
     void Reset();
 }

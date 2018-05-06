@@ -46,7 +46,7 @@ public class Workspace implements IWorkspace, Serializable {
     }
 
     @Override
-    public void Run(int msPerTick) { //TODO check multiple runs
+    public void Run(int msPerTick) {
         isRunning = true;
         timer = new Timer();
         timer.scheduleAtFixedRate(new TimerTask() {

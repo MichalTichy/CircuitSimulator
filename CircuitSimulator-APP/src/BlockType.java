@@ -1,4 +1,9 @@
-
+/**
+ * Block type Enum
+ *
+ * @author Prášek Matěj - xprase07
+ * @author Tichý Michal - xtichy26
+ */
 public enum BlockType {
 	NumericInput,
 	NumericOutput,

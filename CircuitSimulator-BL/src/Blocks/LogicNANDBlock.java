@@ -19,7 +19,7 @@ public class LogicNANDBlock extends BlockBase {
     private BooleanData secondPortData;
 
     /**
-     * Constructor, that create ports and adds them to collection
+     * Constructor that create ports and adds them to collection
      */
     public LogicNANDBlock() {
         this.input1 = new InputBooleanPort();

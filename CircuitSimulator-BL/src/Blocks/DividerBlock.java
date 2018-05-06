@@ -19,7 +19,7 @@ public class DividerBlock extends BlockBase {
     private NumericData secondPortData;
 
     /**
-     * Constructor, that create ports and adds them to collection
+     * Constructor that create ports and adds them to collection
      */
     public DividerBlock() {
         this.input1 = new InputNumericPort();

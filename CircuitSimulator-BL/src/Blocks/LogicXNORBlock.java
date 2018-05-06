@@ -19,7 +19,7 @@ public class LogicXNORBlock extends BlockBase {
     private BooleanData secondPortData;
 
     /**
-     * Constructor, that create ports and adds them to collection
+     * Constructor that create ports and adds them to collection
      */
     public LogicXNORBlock() {
         this.input1 = new InputBooleanPort();

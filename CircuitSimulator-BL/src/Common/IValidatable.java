@@ -9,8 +9,7 @@ package Common;
 
 public interface IValidatable {
     /**
-     * Method, that validate
-     *
+     * Method that validate
      * @return true if is valid, false otherwise
      */
     boolean IsValid();

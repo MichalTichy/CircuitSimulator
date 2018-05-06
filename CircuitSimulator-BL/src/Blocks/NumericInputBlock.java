@@ -9,15 +9,13 @@ package Blocks;
 import Data.NumericData;
 import Ports.OutputNumericPort;
 
-import java.io.Serializable;
-
 public class NumericInputBlock extends BlockBase {
     private OutputNumericPort output;
     private boolean executed = false;
     private double value = 0;
 
     /**
-     * Constructor, that create ports and adds them to collection
+     * Constructor that create ports and adds them to collection
      */
     public NumericInputBlock() {
         this.output = new OutputNumericPort();

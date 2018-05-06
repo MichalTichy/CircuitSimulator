@@ -42,7 +42,7 @@ public abstract class InputPortBase extends PortBase implements IInputPort {
     }
 
     /**
-     * Method, that validate port
+     * Method that validate port
      * @return true if is valid, false otherwise
      */
     @Override

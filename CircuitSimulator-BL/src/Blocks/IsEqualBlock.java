@@ -20,7 +20,7 @@ public class IsEqualBlock extends BlockBase {
     private NumericData secondPortData;
 
     /**
-     * Constructor, that create ports and adds them to collection
+     * Constructor that create ports and adds them to collection
      */
     public IsEqualBlock() {
         this.input1 = new InputNumericPort();

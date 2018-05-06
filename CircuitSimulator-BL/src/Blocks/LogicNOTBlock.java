@@ -17,7 +17,7 @@ public class LogicNOTBlock extends BlockBase {
     private BooleanData firstPortData;
 
     /**
-     * Constructor, that create ports and adds them to collection
+     * Constructor that create ports and adds them to collection
      */
     public LogicNOTBlock() {
         this.input = new InputBooleanPort();

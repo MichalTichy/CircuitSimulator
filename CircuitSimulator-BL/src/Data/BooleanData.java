@@ -12,7 +12,7 @@ public class BooleanData implements IData{
     public boolean Data;
 
     /**
-     * Constructor, that saves data
+     * Constructor that saves data
      *
      * @param data data value
      */

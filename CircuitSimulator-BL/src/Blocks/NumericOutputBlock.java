@@ -9,13 +9,11 @@ package Blocks;
 import Data.NumericData;
 import Ports.InputNumericPort;
 
-import java.io.Serializable;
-
 public class NumericOutputBlock extends BlockBase {
     private InputNumericPort input;
 
     /**
-     * Constructor, that create ports and adds them to collection
+     * Constructor that create ports and adds them to collection
      */
     public NumericOutputBlock() {
         this.input = new InputNumericPort();

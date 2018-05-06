@@ -18,7 +18,7 @@ public class CounterBlock extends BlockBase {
     private boolean lastValue;
 
     /**
-     * Constructor, that create ports and adds them to collection
+     * Constructor that create ports and adds them to collection
      */
     public CounterBlock() {
         input = new InputBooleanPort();
@@ -30,7 +30,7 @@ public class CounterBlock extends BlockBase {
     }
 
     /**
-     * Method, that determine if it was rising edge signal
+     * Method that determine if it was rising edge signal
      *
      * @return true if it war rising edge, false otherwise
      */

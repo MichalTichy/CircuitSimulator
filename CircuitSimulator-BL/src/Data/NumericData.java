@@ -12,7 +12,7 @@ public class NumericData implements IData{
     public double Data;
 
     /**
-     * Constructor, that saves data
+     * Constructor that saves data
      *
      * @param data data value
      */

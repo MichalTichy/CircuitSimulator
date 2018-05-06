@@ -24,7 +24,7 @@ public interface IBlock extends IValidatable,IResetable,ITimeTickConsumer {
     BlockStatus GetStatus();
 
     /**
-     * Execute blocks inner logic
+     * Method that execute block inner logic
      */
     void Execute();
 
@@ -53,7 +53,7 @@ public interface IBlock extends IValidatable,IResetable,ITimeTickConsumer {
     void setPosition(Point2D p);
 
     /**
-     * Method, that saves data form input ports for use it while execution in next tick
+     * Method that saves data from input ports for use it while execution in next tick
      */
     void SaveData();
 }

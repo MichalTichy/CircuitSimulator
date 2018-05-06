@@ -18,7 +18,7 @@ public class SplitterBlock extends BlockBase {
     private IData firstPortData;
 
     /**
-     * Constructor, that create ports and adds them to collection
+     * Constructor that create ports and adds them to collection
      */
     public SplitterBlock() {
         this.input = new InputAnyPort();

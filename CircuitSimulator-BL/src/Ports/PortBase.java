@@ -6,13 +6,9 @@
  */
 package Ports;
 
-import Common.IResetable;
-import Common.IValidatable;
-import com.sun.org.apache.bcel.internal.generic.IF_ACMPEQ;
-
 import java.io.Serializable;
 
-public abstract class PortBase implements IPort,Serializable {
+public abstract class PortBase implements IPort, Serializable {
 
     protected IPort connectedTo;
 
@@ -22,7 +18,7 @@ public abstract class PortBase implements IPort,Serializable {
     }
 
     /**
-     * Method, that connect port
+     * Method that connect port
      *
      * @param port port to connect
      */

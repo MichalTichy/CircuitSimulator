@@ -13,7 +13,7 @@ public class LogicalOutputBlock extends BlockBase {
     private InputBooleanPort input;
 
     /**
-     * Constructor, that create ports and adds them to collection
+     * Constructor that create ports and adds them to collection
      */
     public LogicalOutputBlock() {
         this.input = new InputBooleanPort();

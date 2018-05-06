@@ -12,7 +12,6 @@ public abstract class OutputPortBase extends PortBase implements IOutputPort {
 
     /**
      * Send data to connected input port
-     *
      * @param data data to send
      * @throws IllegalArgumentException if port is not connected
      */
@@ -29,7 +28,7 @@ public abstract class OutputPortBase extends PortBase implements IOutputPort {
     }
 
     /**
-     * Method, that reset port
+     * Method that reset port
      */
     public void Reset(){}
 }

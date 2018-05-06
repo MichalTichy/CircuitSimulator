@@ -1,3 +1,9 @@
+/**
+ * Output any port class
+ *
+ * @author Prášek Matěj - xprase07
+ * @author Tichý Michal - xtichy26
+ */
 package Ports;
 
 import Data.DataType;
@@ -7,21 +13,31 @@ public class OutputAnyPort extends OutputPortBase {
 
     private DataType currentDataType = DataType.Any;
 
+    /**
+     * Getter for current data type
+     *
+     * @return current data type
+     */
     public DataType getCurrentDataType() {
         return currentDataType;
     }
 
-    public void setDataType(DataType dataType) {
-        this.currentDataType = dataType;
-    }
-
-    public void Connect(InputPortBase port)
-    {
+    /**
+     * Method that connect to output port
+     *
+     * @param port port to connect
+     */
+    public void Connect(InputPortBase port) {
         super.Connect(port);
     }
 
-    public void Send(IData data)
-    {
+    /**
+     * Send data to connected input port
+     *
+     * @param data data to send
+     * @throws IllegalArgumentException if port is not connected
+     */
+    public void Send(IData data) {
         super.Send(data);
     }
 
@@ -34,8 +50,7 @@ public class OutputAnyPort extends OutputPortBase {
             case Numeric:
                 if (connectedTo instanceof InputNumericPort)
                     return true;
-                if (connectedTo instanceof  InputAnyPort)
-                {
+                if (connectedTo instanceof InputAnyPort) {
                     DataType connectedToType = ((InputAnyPort) connectedTo).getCurrentDataType();
                     return connectedToType==DataType.Any || connectedToType==DataType.Numeric;
                 }
@@ -43,8 +58,7 @@ public class OutputAnyPort extends OutputPortBase {
             case Boolean:
                 if (connectedTo instanceof InputBooleanPort)
                     return true;
-                if (connectedTo instanceof  InputAnyPort)
-                {
+                if (connectedTo instanceof InputAnyPort) {
                     DataType connectedToType = ((InputAnyPort) connectedTo).getCurrentDataType();
                     return connectedToType==DataType.Any || connectedToType==DataType.Numeric;
                 }
