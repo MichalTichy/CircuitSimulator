@@ -8,6 +8,7 @@ import Workspace.IWorkspace;
 import Workspace.Workspace;
 import javafx.application.Platform;
 import javafx.geometry.Point2D;
+import javafx.scene.control.Alert;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -15,11 +16,12 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Line;
 
+import java.io.*;
 import java.util.Collection;
 import java.util.HashMap;
 
 public class WorkSpaceConnector implements ITimeTickConsumer {
-    private IWorkspace workspace = new Workspace();
+    private IWorkspace workspace;
     private AnchorPane workPane;
     private VBox IOPane;
     private Label statusLabel;
@@ -29,8 +31,8 @@ public class WorkSpaceConnector implements ITimeTickConsumer {
 
     public WorkSpaceConnector(AnchorPane workPane, VBox IO_pane, Label statusLabel, Label valueLabel) {
 
+        NewWorkspace();
         this.workPane = workPane;
-        workspace.Subscribe(this);
         this.IOPane = IO_pane;
         this.statusLabel = statusLabel;
         this.valueLabel = valueLabel;
@@ -317,5 +319,40 @@ public class WorkSpaceConnector implements ITimeTickConsumer {
     @Override
     public void ProcessTick() {
         Platform.runLater(() -> DrawWorkspace());
+    }
+
+    public void NewWorkspace() {
+        workspace=new Workspace();
+        workspace.Subscribe(this);
+    }
+
+    public void LoadWorkspace(File file) throws ClassNotFoundException {
+        FileInputStream fileStream = null;
+        try {
+            fileStream = new FileInputStream(file);
+            ObjectInputStream in = new ObjectInputStream(fileStream);
+            workspace = (Workspace) in.readObject();
+            workspace.Subscribe(this);
+            in.close();
+            fileStream.close();
+        } catch (IOException e) {
+            new Alert(Alert.AlertType.ERROR,"Workspace loading failed.Ensure that selected file exists and is not corrupted").show();
+        }
+    }
+    public void SaveWorkspace(File file) {
+        try {
+            FileOutputStream fileOut =new FileOutputStream(file);
+            ObjectOutputStream out = new ObjectOutputStream(fileOut);
+
+            workspace.Unsubscribe(this);
+
+            out.writeObject(workspace);
+
+            workspace.Subscribe(this);
+            out.close();
+            fileOut.close();
+        } catch (IOException e) {
+            new Alert(Alert.AlertType.ERROR,"Workspace saving failed. /n Ensure that you have permission to save to selected location.").show();
+        }
     }
 }

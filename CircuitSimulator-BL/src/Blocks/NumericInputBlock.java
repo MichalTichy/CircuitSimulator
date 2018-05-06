@@ -9,6 +9,8 @@ package Blocks;
 import Data.NumericData;
 import Ports.OutputNumericPort;
 
+import java.io.Serializable;
+
 public class NumericInputBlock extends BlockBase {
     private OutputNumericPort output;
     private boolean executed = false;

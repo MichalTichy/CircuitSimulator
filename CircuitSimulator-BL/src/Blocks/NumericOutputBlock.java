@@ -9,6 +9,8 @@ package Blocks;
 import Data.NumericData;
 import Ports.InputNumericPort;
 
+import java.io.Serializable;
+
 public class NumericOutputBlock extends BlockBase {
     private InputNumericPort input;
 

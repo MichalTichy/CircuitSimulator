@@ -9,14 +9,16 @@ package Blocks;
 import Ports.IInputPort;
 import Ports.IOutputPort;
 import Ports.IPort;
-import javafx.geometry.Point2D;
 
+import java.awt.geom.Point2D;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class BlockBase implements IBlock {
+public abstract class BlockBase implements IBlock,Serializable {
 
     protected Point2D position;
+
 
     @Override
     public Point2D getPosition() {

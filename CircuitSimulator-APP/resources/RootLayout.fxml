@@ -12,9 +12,9 @@
                  <menus>
                      <Menu mnemonicParsing="false" text="File">
                          <items>
-                             <MenuItem mnemonicParsing="false" onAction="#NewTemplate" text="New"/>
-                             <MenuItem mnemonicParsing="false" onAction="#LoadTemplate" text="Load"/>
-                             <MenuItem mnemonicParsing="false" onAction="#SaveTemplate" text="Save"/>
+                             <MenuItem mnemonicParsing="false" onAction="#NewWorkspace" text="New"/>
+                             <MenuItem mnemonicParsing="false" onAction="#LoadWorkspace" text="Load"/>
+                             <MenuItem mnemonicParsing="false" onAction="#SaveWorkspace" text="Save"/>
                          </items>
                      </Menu>
                  </menus>
@@ -80,7 +80,7 @@
                          </HBox.margin>
                      </Label>
                      <Label alignment="BASELINE_RIGHT" layoutX="122.0" maxHeight="-Infinity" minHeight="-Infinity"
-                            prefHeight="16.0" prefWidth="193.0" text="Authors: Prášek Matěj, Tichý Mchal"
+                            prefHeight="16.0" prefWidth="193.0" text="Authors: Prášek Matěj, Tichý Michal"
                             AnchorPane.rightAnchor="3.0" HBox.hgrow="ALWAYS"/>
                      <Label fx:id="statusLabel" alignment="BASELINE_LEFT" maxHeight="-Infinity" minHeight="-Infinity"
                             prefHeight="16.0" prefWidth="135.0" AnchorPane.leftAnchor="3.0" HBox.hgrow="ALWAYS">

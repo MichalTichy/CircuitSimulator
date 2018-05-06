@@ -11,8 +11,8 @@ import Common.ITimeTickConsumer;
 import Common.IValidatable;
 import Ports.IInputPort;
 import Ports.IOutputPort;
-import javafx.geometry.Point2D;
 
+import java.awt.geom.Point2D;
 import java.util.List;
 
 public interface IBlock extends IValidatable,IResetable,ITimeTickConsumer {

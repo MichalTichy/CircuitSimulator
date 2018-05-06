@@ -1,4 +1,5 @@
 
+import java.awt.geom.Point2D;
 import java.io.IOException;
 import java.util.*;
 
@@ -10,7 +11,6 @@ import com.sun.crypto.provider.BlowfishCipher;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Bounds;
-import javafx.geometry.Point2D;
 import javafx.scene.Parent;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.AnchorPane;
@@ -79,26 +79,27 @@ public class GuiBlock extends AnchorPane{
 		Init();
 	}
 
+
 	public void Update(){
-	    relocateToPoint(block.getPosition());
+		Point2D position=block.getPosition();
+		relocateToPoint(new javafx.geometry.Point2D(position.getX(),position.getY()));
 		getStylesheets().clear();
-	    if (block.IsValid()){
-            switch (block.GetStatus()) {
-                case Idle:
-                    getStyleClass().add("icon-status-Idle");
-                    break;
-                case Working:
-                    getStyleClass().add("icon-status-Working");
-                    break;
-            }
-        }
-        else {
-            getStyleClass().add("icon-status-Error");
-        }
+		if (block.IsValid()){
+			switch (block.GetStatus()) {
+				case Idle:
+					getStyleClass().add("icon-status-Idle");
+					break;
+				case Working:
+					getStyleClass().add("icon-status-Working");
+					break;
+			}
+		}
+		else {
+			getStyleClass().add("icon-status-Error");
+		}
 
-        UpdatePortsPosition();
-    }
-
+		UpdatePortsPosition();
+	}
 
     private void AddPorts(){
 		for (IPort inputPort : block.GetInputPorts() ) {
@@ -115,7 +116,7 @@ public class GuiBlock extends AnchorPane{
 
 	protected void UpdatePortsPosition(){
 		Bounds bounds = localToScene(getBoundsInLocal());
-		Point2D position = new Point2D(bounds.getMinX(),bounds.getMaxY());
+		javafx.geometry.Point2D  position = new javafx.geometry.Point2D(bounds.getMinX(),bounds.getMaxY());
 		double width=getPrefWidth();
 		double height=getPrefHeight();
 
@@ -160,12 +161,12 @@ public class GuiBlock extends AnchorPane{
 	@FXML
 	private void initialize() {}
 	
-	public void relocateToPoint (Point2D p) {
+	public void relocateToPoint (javafx.geometry.Point2D p) {
 
 		//relocates the object to a point that has been converted to
 		//scene coordinates
 
-		Point2D localCoords = getParent().sceneToLocal(p);
+		javafx.geometry.Point2D localCoords = getParent().sceneToLocal(p);
 
 
 		relocate ( 
@@ -173,7 +174,7 @@ public class GuiBlock extends AnchorPane{
 				(int) (localCoords.getY() - (getBoundsInLocal().getHeight() / 2))
 			);
 
-		if (block!=null) block.setPosition(p);
+		if (block!=null) block.setPosition(new Point2D.Double(p.getX(),p.getY()));
 	}
 	
 	public BlockType getType () { return mType; }
