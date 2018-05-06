@@ -415,7 +415,7 @@ public class WorkSpaceConnector implements ITimeTickConsumer {
      * Method that create new workspace
      */
     public void NewWorkspace() {
-        if(workspace.GetIsRunning())    workspace.Break();
+        if(workspace!=null &&  workspace.GetIsRunning())    workspace.Break();
         workspace = new Workspace();
         workspace.Subscribe(this);
     }

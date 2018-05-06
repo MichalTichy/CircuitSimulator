@@ -1,0 +1,144 @@
+.dragicon {
+	-fx-border-width: 3;
+}
+
+.line{
+	-fx-stroke-width: 3;
+}
+
+.port {
+	-fx-background-color: blue;
+}
+
+.port.icon-status-Error {
+	-fx-background-color: red;
+}
+
+.port.icon-status-OK {
+	-fx-background-color: green;
+}
+
+.port.icon-status-Disabled {
+	-fx-background-color: grey;
+	-fx-border-color: grey;
+}
+
+.icon-status-Idle {
+	-fx-border-color: yellow;
+}
+
+.port.icon-status-Selected {
+	-fx-border-color: yellow;
+	-fx-border-style: dotted;
+	-fx-border-width: 3;
+	-fx-background-color: blue;
+}
+
+.icon-status-Working {
+	-fx-border-color: green;
+}
+
+.icon-status-Error {
+	-fx-border-color: red;
+}
+
+.icon-status-OK {
+	-fx-border-color: green;
+}
+
+.icon-Adder {
+	-fx-background-image: url("https://ondryasek.blob.core.windows.net/tilepsi/AdderBlock.png");
+	-fx-background-size: 100 60;
+}
+
+.icon-NumericInput {
+	-fx-background-image: url("https://ondryasek.blob.core.windows.net/tilepsi/NumericInputBlock.png");
+	-fx-background-size: 100 60;
+}
+
+.icon-NumericOutput {
+	-fx-background-image: url("https://ondryasek.blob.core.windows.net/tilepsi/NumericOutputBlock.png");
+	-fx-background-size: 100 60;
+}
+
+.icon-Clock {
+	-fx-background-image: url("https://ondryasek.blob.core.windows.net/tilepsi/ClockBlock.png");
+	-fx-background-size: 100 60;
+}
+
+.icon-Counter {
+	-fx-background-image: url("https://ondryasek.blob.core.windows.net/tilepsi/CounterBlock.png");
+	-fx-background-size: 100 60;
+}
+
+.icon-Divider {
+	-fx-background-image: url("https://ondryasek.blob.core.windows.net/tilepsi/DividerBlock.png");
+	-fx-background-size: 100 60;
+}
+
+.icon-IsEqual {
+	-fx-background-image: url("https://ondryasek.blob.core.windows.net/tilepsi/IsEqualBlock.png");
+	-fx-background-size: 100 60;
+}
+
+.icon-IsGreater {
+	-fx-background-image: url("https://ondryasek.blob.core.windows.net/tilepsi/IsGreaterBlock.png");
+	-fx-background-size: 100 60;
+}
+
+.icon-IsLess {
+	-fx-background-image: url("https://ondryasek.blob.core.windows.net/tilepsi/IsLessBlock.png");
+	-fx-background-size: 100 60;
+}
+
+.icon-And {
+	-fx-background-image: url("https://ondryasek.blob.core.windows.net/tilepsi/LogicalANDBlock.png");
+	-fx-background-size: 100 60;
+}
+.icon-LogicalInput {
+	-fx-background-image: url("https://ondryasek.blob.core.windows.net/tilepsi/LogicalInputBlock.png");
+	-fx-background-size: 100 60;
+}
+.icon-Nand {
+	-fx-background-image: url("https://ondryasek.blob.core.windows.net/tilepsi/LogicalNANDBlock.png");
+	-fx-background-size: 100 60;
+}
+
+.icon-Nor {
+	-fx-background-image: url("https://ondryasek.blob.core.windows.net/tilepsi/LogicalNORBlock.png");
+	-fx-background-size: 100 60;
+}
+
+.icon-Not {
+	-fx-background-image: url("https://ondryasek.blob.core.windows.net/tilepsi/LogicalNOTBlock.png");
+	-fx-background-size: 100 60;
+}
+
+.icon-Or {
+	-fx-background-image: url("https://ondryasek.blob.core.windows.net/tilepsi/LogicalORBlock.png");
+	-fx-background-size: 100 60;
+}
+
+.icon-LogicalOutput {
+	-fx-background-image: url("https://ondryasek.blob.core.windows.net/tilepsi/LogicalOutputBlock.png");
+	-fx-background-size: 100 60;
+}
+
+.icon-Xnor {
+	-fx-background-image: url("https://ondryasek.blob.core.windows.net/tilepsi/LogicalXNORBlock.png");
+	-fx-background-size: 100 60;
+}
+
+.icon-Xor {
+	-fx-background-image: url("https://ondryasek.blob.core.windows.net/tilepsi/LogicalXORBlock.png");
+	-fx-background-size: 100 60;
+}
+
+.icon-Multiplier {
+	-fx-background-image: url("https://ondryasek.blob.core.windows.net/tilepsi/MultiplierBlock.png");
+	-fx-background-size: 100 60;
+}
+.icon-Splitter {
+	-fx-background-image: url("https://ondryasek.blob.core.windows.net/tilepsi/SplitterBlock.png");
+	-fx-background-size: 100 60;
+}

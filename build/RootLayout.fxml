@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<fx:root xmlns:fx="http://javafx.com/fxml/1" type="AnchorPane" xmlns="http://javafx.com/javafx/8">
+   <children>
+       <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+             AnchorPane.topAnchor="0.0">
+         <children>
+             <MenuBar>
+                 <menus>
+                     <Menu mnemonicParsing="false" text="File">
+                         <items>
+                             <MenuItem mnemonicParsing="false" onAction="#NewWorkspace" text="New"/>
+                             <MenuItem mnemonicParsing="false" onAction="#LoadWorkspace" text="Load"/>
+                             <MenuItem mnemonicParsing="false" onAction="#SaveWorkspace" text="Save"/>
+                         </items>
+                     </Menu>
+                 </menus>
+             </MenuBar>
+             <HBox maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="340.0"
+                   prefHeight="25.0" prefWidth="454.0">
+                 <children>
+                     <Button disable="true" maxHeight="-Infinity" maxWidth="1.7976931348623157E308"
+                             minHeight="-Infinity" minWidth="0.0" mnemonicParsing="false" prefHeight="25.0"
+                             HBox.hgrow="ALWAYS"/>
+                     <Button layoutX="268.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+                             minWidth="-Infinity" mnemonicParsing="false" onAction="#StepClicked" prefHeight="25.0"
+                             prefWidth="85.0" text="Step"/>
+                     <Button layoutX="353.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+                             minWidth="-Infinity" mnemonicParsing="false" onAction="#StartStopClicked" prefHeight="25.0"
+                             prefWidth="85.0" text="Start/Stop"/>
+                     <TextField fx:id="msPerTick" layoutX="438.0" maxHeight="-Infinity" maxWidth="-Infinity"
+                                minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="85.0"
+                                promptText="Speed [ms]"/>
+                     <Button layoutX="523.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+                             minWidth="-Infinity" mnemonicParsing="false" onAction="#ResetClicked" prefHeight="25.0"
+                             prefWidth="85.0" text="Reset"/>
+                     <Button disable="true" layoutX="607.0" maxHeight="-Infinity" maxWidth="1.7976931348623157E308"
+                             minHeight="-Infinity" minWidth="0.0" mnemonicParsing="false" prefHeight="25.0"
+                             HBox.hgrow="ALWAYS"/>
+                 </children>
+             </HBox>
+             <SplitPane fx:id="base_pane" dividerPositions="0.15795724465558195, 0.8705463182897862"
+                        VBox.vgrow="ALWAYS">
+              <items>
+                  <ScrollPane fitToWidth="true" maxWidth="130.0" minWidth="130.0" prefViewportHeight="551.0"
+                              prefViewportWidth="135.0" prefWidth="120.0" style="-fx-background-color: lightgrey;">
+                     <padding>
+                        <Insets left="8.0" top="6.0" />
+                     </padding>
+                     <content>
+                         <VBox fx:id="left_pane" fillWidth="false" spacing="10.0"
+                               style="-fx-background-color: lightgrey;"/>
+                     </content>
+                  </ScrollPane>
+                  <ScrollPane fitToHeight="true" fitToWidth="true" prefViewportHeight="557.0" prefViewportWidth="459.0">
+                      <content>
+                          <AnchorPane fx:id="right_pane" minHeight="-1.0" minWidth="-1.0"/>
+                      </content>
+                  </ScrollPane>
+                  <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" maxWidth="-Infinity"
+                              minWidth="-Infinity" prefHeight="-1.0" prefWidth="135.0"
+                              style="-fx-background-color: lightgrey;">
+                  <content>
+                      <VBox fx:id="IO_pane" maxWidth="-Infinity" prefWidth="135.0"
+                            style="-fx-background-color: lightgrey;"/>
+                  </content>
+              </ScrollPane>
+              </items>
+            </SplitPane>
+             <AnchorPane maxHeight="-Infinity" minHeight="-Infinity" prefHeight="16.0" VBox.vgrow="ALWAYS">
+                 <children>
+                     <Label fx:id="valueLabel" alignment="BASELINE_CENTER" layoutX="53.0" maxHeight="-Infinity"
+                            minHeight="-Infinity" prefHeight="16.0" prefWidth="69.0" AnchorPane.leftAnchor="1.0"
+                            AnchorPane.rightAnchor="1.0" HBox.hgrow="ALWAYS">
+                         <HBox.margin>
+                             <Insets/>
+                         </HBox.margin>
+                     </Label>
+                     <Label alignment="BASELINE_RIGHT" layoutX="122.0" maxHeight="-Infinity" minHeight="-Infinity"
+                            prefHeight="16.0" prefWidth="193.0" text="Authors: Prášek Matěj, Tichý Michal"
+                            AnchorPane.rightAnchor="3.0" HBox.hgrow="ALWAYS"/>
+                     <Label fx:id="statusLabel" alignment="BASELINE_LEFT" maxHeight="-Infinity" minHeight="-Infinity"
+                            prefHeight="16.0" prefWidth="135.0" AnchorPane.leftAnchor="3.0" HBox.hgrow="ALWAYS">
+                         <HBox.margin>
+                             <Insets/>
+                         </HBox.margin>
+                     </Label>
+                 </children>
+             </AnchorPane>
+         </children>
+      </VBox>
+   </children>
+</fx:root>

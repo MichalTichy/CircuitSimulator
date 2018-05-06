@@ -229,6 +229,7 @@ public class RootLayout extends AnchorPane {
             statusLabel.setText("Status: Stopped");
             workspaceConnector.Break();
         } else {
+
             statusLabel.setText("Status: Running");
             if (isNumeric(msPerTick.getText())) {
                 workspaceConnector.Run(Integer.parseInt(msPerTick.getText()));
