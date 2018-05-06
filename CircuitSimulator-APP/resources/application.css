@@ -43,98 +43,98 @@
 }
 
 .icon-Adder {
-	-fx-background-image: url("blockImages/AdderBlock.png");
+	-fx-background-image: url("https://ondryasek.blob.core.windows.net/tilepsi/AdderBlock.png");
 	-fx-background-size: 100 60;
 }
 
 .icon-NumericInput {
-	-fx-background-image: url("blockImages/NumericInputBlock.png");
+	-fx-background-image: url("https://ondryasek.blob.core.windows.net/tilepsi/NumericInputBlock.png");
 	-fx-background-size: 100 60;
 }
 
 .icon-NumericOutput {
-	-fx-background-image: url("blockImages/NumericOutputBlock.png");
+	-fx-background-image: url("https://ondryasek.blob.core.windows.net/tilepsi/NumericOutputBlock.png");
 	-fx-background-size: 100 60;
 }
 
 .icon-Clock {
-	-fx-background-image: url("blockImages/ClockBlock.png");
+	-fx-background-image: url("https://ondryasek.blob.core.windows.net/tilepsi/ClockBlock.png");
 	-fx-background-size: 100 60;
 }
 
 .icon-Counter {
-	-fx-background-image: url("blockImages/CounterBlock.png");
+	-fx-background-image: url("https://ondryasek.blob.core.windows.net/tilepsi/CounterBlock.png");
 	-fx-background-size: 100 60;
 }
 
 .icon-Divider {
-	-fx-background-image: url("blockImages/DividerBlock.png");
+	-fx-background-image: url("https://ondryasek.blob.core.windows.net/tilepsi/DividerBlock.png");
 	-fx-background-size: 100 60;
 }
 
 .icon-IsEqual {
-	-fx-background-image: url("blockImages/IsEqualBlock.png");
+	-fx-background-image: url("https://ondryasek.blob.core.windows.net/tilepsi/IsEqualBlock.png");
 	-fx-background-size: 100 60;
 }
 
 .icon-IsGreater {
-	-fx-background-image: url("blockImages/IsGreaterBlock.png");
+	-fx-background-image: url("https://ondryasek.blob.core.windows.net/tilepsi/IsGreaterBlock.png");
 	-fx-background-size: 100 60;
 }
 
 .icon-IsLess {
-	-fx-background-image: url("blockImages/IsLessBlock.png");
+	-fx-background-image: url("https://ondryasek.blob.core.windows.net/tilepsi/IsLessBlock.png");
 	-fx-background-size: 100 60;
 }
 
 .icon-And {
-	-fx-background-image: url("blockImages/LogicalANDBlock.png");
+	-fx-background-image: url("https://ondryasek.blob.core.windows.net/tilepsi/LogicalANDBlock.png");
 	-fx-background-size: 100 60;
 }
 .icon-LogicalInput {
-	-fx-background-image: url("blockImages/LogicalInputBlock.png");
+	-fx-background-image: url("https://ondryasek.blob.core.windows.net/tilepsi/LogicalInputBlock.png");
 	-fx-background-size: 100 60;
 }
 .icon-Nand {
-	-fx-background-image: url("blockImages/LogicalNANDBlock.png");
+	-fx-background-image: url("https://ondryasek.blob.core.windows.net/tilepsi/LogicalNANDBlock.png");
 	-fx-background-size: 100 60;
 }
 
 .icon-Nor {
-	-fx-background-image: url("blockImages/LogicalNORBlock.png");
+	-fx-background-image: url("https://ondryasek.blob.core.windows.net/tilepsi/LogicalNORBlock.png");
 	-fx-background-size: 100 60;
 }
 
 .icon-Not {
-	-fx-background-image: url("blockImages/LogicalNOTBlock.png");
+	-fx-background-image: url("https://ondryasek.blob.core.windows.net/tilepsi/LogicalNOTBlock.png");
 	-fx-background-size: 100 60;
 }
 
 .icon-Or {
-	-fx-background-image: url("blockImages/LogicalORBlock.png");
+	-fx-background-image: url("https://ondryasek.blob.core.windows.net/tilepsi/LogicalORBlock.png");
 	-fx-background-size: 100 60;
 }
 
 .icon-LogicalOutput {
-	-fx-background-image: url("blockImages/LogicalOutputBlock.png");
+	-fx-background-image: url("https://ondryasek.blob.core.windows.net/tilepsi/LogicalOutputBlock.png");
 	-fx-background-size: 100 60;
 }
 
 .icon-Xnor {
-	-fx-background-image: url("blockImages/LogicalXNORBlock.png");
+	-fx-background-image: url("https://ondryasek.blob.core.windows.net/tilepsi/LogicalXNORBlock.png");
 	-fx-background-size: 100 60;
 }
 
 .icon-Xor {
-	-fx-background-image: url("blockImages/LogicalXORBlock.png");
+	-fx-background-image: url("https://ondryasek.blob.core.windows.net/tilepsi/LogicalXORBlock.png");
 	-fx-background-size: 100 60;
 }
 
 .icon-Multiplier {
-	-fx-background-image: url("blockImages/MultiplierBlock.png");
+	-fx-background-image: url("https://ondryasek.blob.core.windows.net/tilepsi/MultiplierBlock.png");
 	-fx-background-size: 100 60;
 }
 .icon-Splitter {
-	-fx-background-image: url("blockImages/SplitterBlock.png");
+	-fx-background-image: url("https://ondryasek.blob.core.windows.net/tilepsi/SplitterBlock.png");
 	-fx-background-size: 100 60;
 }

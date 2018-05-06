@@ -19,6 +19,8 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Line;
 
@@ -325,12 +327,14 @@ public class WorkSpaceConnector implements ITimeTickConsumer {
                 TextField textField = new TextField();
                 textField.setText(Double.toString(((NumericInputBlock) block).getValue()));
                 IOPane.getChildren().add(textField);
-                textField.setOnAction(event -> {
+                textField.textProperty().addListener((observable)->{
                     String text = textField.getText();
-                    if (text != null && text.matches("^[0-9]+$")) {
+                    if (text != null && text.matches("^-?\\d+(\\.\\d)?$")) {
                         ((NumericInputBlock) block).SetValue(Double.parseDouble(textField.getText()));
-                    } else {
-                        event.consume();
+                        textField.setStyle("-fx-background-color: #FFFFFF;");
+                    }
+                    else{
+                        textField.setStyle("-fx-background-color: #FF0000;");
                     }
                 });
             }
