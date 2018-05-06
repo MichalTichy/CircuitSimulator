@@ -1,3 +1,9 @@
+/**
+ * Clock block class
+ *
+ * @author Prášek Matěj - xprase07
+ * @author Tichý Michal - xtichy26
+ */
 package Blocks;
 
 import Data.BooleanData;
@@ -9,6 +15,9 @@ public class ClockBlock extends BlockBase {
     private OutputBooleanPort output;
     private boolean value;
 
+    /**
+     * Constructor, that create ports and adds them to collection
+     */
     public ClockBlock() {
         this.enable = new InputBooleanPort();
         this.output = new OutputBooleanPort();

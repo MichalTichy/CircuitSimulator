@@ -1,3 +1,9 @@
+/**
+ * XNOR block class
+ *
+ * @author Prášek Matěj - xprase07
+ * @author Tichý Michal - xtichy26
+ */
 package Blocks;
 
 import Data.BooleanData;
@@ -12,6 +18,9 @@ public class LogicXNORBlock extends BlockBase {
     private BooleanData firstPortData;
     private BooleanData secondPortData;
 
+    /**
+     * Constructor, that create ports and adds them to collection
+     */
     public LogicXNORBlock() {
         this.input1 = new InputBooleanPort();
         this.input2 = new InputBooleanPort();

@@ -1,8 +1,10 @@
+/**
+ * Port base abstract class
+ *
+ * @author Prášek Matěj - xprase07
+ * @author Tichý Michal - xtichy26
+ */
 package Ports;
-
-import Common.IResetable;
-import Common.IValidatable;
-import com.sun.org.apache.bcel.internal.generic.IF_ACMPEQ;
 
 public abstract class PortBase implements IPort {
     protected IPort connectedTo;
@@ -12,7 +14,12 @@ public abstract class PortBase implements IPort {
         return connectedTo;
     }
 
-    protected void Connect(PortBase port) throws IllegalArgumentException {
+    /**
+     * Method, that connect port
+     *
+     * @param port port to connect
+     */
+    protected void Connect(PortBase port) {
         if(connectedTo == port) return;
         if(connectedTo!=null) Disconnect();
         connectedTo = port;

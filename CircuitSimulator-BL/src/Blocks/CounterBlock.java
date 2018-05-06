@@ -1,3 +1,9 @@
+/**
+ * Counter block class
+ *
+ * @author Prášek Matěj - xprase07
+ * @author Tichý Michal - xtichy26
+ */
 package Blocks;
 
 import Data.NumericData;
@@ -11,6 +17,9 @@ public class CounterBlock extends BlockBase {
     private double counter = 0;
     private boolean lastValue;
 
+    /**
+     * Constructor, that create ports and adds them to collection
+     */
     public CounterBlock() {
         input = new InputBooleanPort();
         reset = new InputBooleanPort();
@@ -20,6 +29,11 @@ public class CounterBlock extends BlockBase {
         outputPorts.add(output);
     }
 
+    /**
+     * Method, that determine if it was rising edge signal
+     *
+     * @return true if it war rising edge, false otherwise
+     */
     private boolean risingEdge() {
         return !lastValue && input.DownloadData().Data;
     }

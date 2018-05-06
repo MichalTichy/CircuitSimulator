@@ -1,3 +1,9 @@
+/**
+ * Multiplier  block class
+ *
+ * @author Prášek Matěj - xprase07
+ * @author Tichý Michal - xtichy26
+ */
 package Blocks;
 
 import Data.NumericData;
@@ -12,6 +18,9 @@ public class MultiplierBlock extends BlockBase {
     private NumericData firstPortData;
     private NumericData secondPortData;
 
+    /**
+     * Constructor, that create ports and adds them to collection
+     */
     public MultiplierBlock() {
         this.input1 = new InputNumericPort();
         this.input2 = new InputNumericPort();

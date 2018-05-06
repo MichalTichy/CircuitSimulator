@@ -1,3 +1,9 @@
+/**
+ * NOT block class
+ *
+ * @author Prášek Matěj - xprase07
+ * @author Tichý Michal - xtichy26
+ */
 package Blocks;
 
 import Data.BooleanData;
@@ -10,6 +16,9 @@ public class LogicNOTBlock extends BlockBase {
     private OutputBooleanPort output;
     private BooleanData firstPortData;
 
+    /**
+     * Constructor, that create ports and adds them to collection
+     */
     public LogicNOTBlock() {
         this.input = new InputBooleanPort();
         this.output = new OutputBooleanPort();

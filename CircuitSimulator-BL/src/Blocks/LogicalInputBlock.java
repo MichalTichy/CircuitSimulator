@@ -1,3 +1,9 @@
+/**
+ * Logical input block class
+ *
+ * @author Prášek Matěj - xprase07
+ * @author Tichý Michal - xtichy26
+ */
 package Blocks;
 
 import Data.BooleanData;
@@ -8,18 +14,30 @@ public class LogicalInputBlock extends BlockBase {
     private boolean executed = false;
     private boolean value = false;
 
+    /**
+     * Constructor, that create ports and adds them to collection
+     */
+    public LogicalInputBlock() {
+        this.output = new OutputBooleanPort();
+        this.outputPorts.add(output);
+    }
+
+    /**
+     * Setter of block value to send
+     *
+     * @param value new block value
+     */
     public void SetValue(boolean value) {
         this.value = value;
         executed = false;
     }
 
+    /**
+     * Getter of block value
+     * @return block value
+     */
     public boolean GetValue() {
         return value;
-    }
-
-    public LogicalInputBlock() {
-        this.output = new OutputBooleanPort();
-        this.outputPorts.add(output);
     }
 
     @Override

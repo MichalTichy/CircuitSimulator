@@ -1,3 +1,9 @@
+/**
+ * Block base abstract block class, all block extend this
+ *
+ * @author Prášek Matěj - xprase07
+ * @author Tichý Michal - xtichy26
+ */
 package Blocks;
 
 import Ports.IInputPort;
@@ -11,12 +17,12 @@ import java.util.List;
 public abstract class BlockBase implements IBlock {
 
     protected Point2D position;
+
     @Override
     public Point2D getPosition() {
         return position;
     }
 
-    @Override
     public void setPosition(Point2D position) {
         this.position =position;
     }
@@ -37,6 +43,9 @@ public abstract class BlockBase implements IBlock {
         return status;
     }
 
+    /**
+     * Method, that reset block
+     */
     public void Reset(){
         inputPorts.forEach(t->t.Reset());
         outputPorts.forEach(t->t.Reset());
@@ -44,11 +53,20 @@ public abstract class BlockBase implements IBlock {
         status=BlockStatus.Idle;
     }
 
+    /**
+     * Returns true, because all blocks are priority consumers
+     *
+     * @return true
+     */
     @Override
     public boolean IsPriorityConsumer() {
         return true;
     }
 
+    /**
+     * Method, that validate block
+     * @return true if is valid, false otherwise
+     */
     public boolean IsValid() {
         for (IPort item:inputPorts) {
             if (!item.IsValid())
@@ -61,6 +79,9 @@ public abstract class BlockBase implements IBlock {
         return true;
     }
 
+    /**
+     * Method, that determine, what block will do if process tick comes
+     */
     @Override
     public void ProcessTick() {
         if (status == BlockStatus.Working) {

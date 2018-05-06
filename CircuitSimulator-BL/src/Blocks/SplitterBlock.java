@@ -1,3 +1,9 @@
+/**
+ * Splitter block class
+ *
+ * @author Prášek Matěj - xprase07
+ * @author Tichý Michal - xtichy26
+ */
 package Blocks;
 
 import Data.IData;
@@ -11,6 +17,9 @@ public class SplitterBlock extends BlockBase {
     private OutputAnyPort output2;
     private IData firstPortData;
 
+    /**
+     * Constructor, that create ports and adds them to collection
+     */
     public SplitterBlock() {
         this.input = new InputAnyPort();
         this.output1 = new OutputAnyPort();

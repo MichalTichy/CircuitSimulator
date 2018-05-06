@@ -1,3 +1,9 @@
+/**
+ * Is greater  block class
+ *
+ * @author Prášek Matěj - xprase07
+ * @author Tichý Michal - xtichy26
+ */
 package Blocks;
 
 import Data.BooleanData;
@@ -13,6 +19,9 @@ public class IsGreaterBlock extends BlockBase {
     private NumericData firstPortData;
     private NumericData secondPortData;
 
+    /**
+     * Constructor, that create ports and adds them to collection
+     */
     public IsGreaterBlock() {
         this.input1 = new InputNumericPort();
         this.input2 = new InputNumericPort();
