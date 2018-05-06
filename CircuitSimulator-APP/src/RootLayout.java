@@ -2,7 +2,6 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Point2D;
 import javafx.scene.control.Label;
 import javafx.scene.control.SplitPane;
 import javafx.scene.control.TextField;
@@ -12,7 +11,11 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.input.TransferMode;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.FileChooser;
+import javafx.stage.Window;
 
+import java.awt.geom.Point2D;
+import java.io.File;
 import java.io.IOException;
 
 public class RootLayout extends AnchorPane{
@@ -96,7 +99,7 @@ public class RootLayout extends AnchorPane{
 				
 				//begin drag ops
 				mDragOverIcon.setType(icn.getType());
-				mDragOverIcon.relocateToPoint(new Point2D (event.getSceneX(), event.getSceneY()));
+				mDragOverIcon.relocateToPoint(new javafx.geometry.Point2D (event.getSceneX(), event.getSceneY()));
             
 				ClipboardContent content = new ClipboardContent();
 				DragContainer container = new DragContainer();
@@ -119,15 +122,15 @@ public class RootLayout extends AnchorPane{
 
 			@Override
 			public void handle(DragEvent event) {
-				
-				Point2D p = right_pane.sceneToLocal(event.getSceneX(), event.getSceneY());
+
+                javafx.geometry.Point2D p = right_pane.sceneToLocal(event.getSceneX(), event.getSceneY());
 
 				//turn on transfer mode and track in the right-pane's context 
 				//if (and only if) the mouse cursor falls within the right pane's bounds.
 				if (!right_pane.boundsInLocalProperty().get().contains(p)) {
 					
 					event.acceptTransferModes(TransferMode.ANY);
-					mDragOverIcon.relocateToPoint(new Point2D(event.getSceneX(), event.getSceneY()));
+					mDragOverIcon.relocateToPoint(new javafx.geometry.Point2D(event.getSceneX(), event.getSceneY()));
 					return;
 				}
 
@@ -148,7 +151,7 @@ public class RootLayout extends AnchorPane{
 				//pane, coodinates must be in the root pane's coordinate system to work
 				//properly.
 				mDragOverIcon.relocateToPoint(
-								new Point2D(event.getSceneX(), event.getSceneY())
+								new javafx.geometry.Point2D(event.getSceneX(), event.getSceneY())
 				);
 				event.consume();
 			}
@@ -163,7 +166,7 @@ public class RootLayout extends AnchorPane{
 						(DragContainer) event.getDragboard().getContent(DragContainer.AddNode);
 				
 				container.addData("scene_coords", 
-						new Point2D(event.getSceneX(), event.getSceneY()));
+						new javafx.geometry.Point2D(event.getSceneX(), event.getSceneY()));
 				
 				ClipboardContent content = new ClipboardContent();
 				content.put(DragContainer.AddNode, container);
@@ -192,9 +195,9 @@ public class RootLayout extends AnchorPane{
 
                         BlockType type = BlockType.valueOf(container.getValue("type"));
 
-                        Point2D cursorPoint = container.getValue("scene_coords");
+                        javafx.geometry.Point2D cursorPoint = container.getValue("scene_coords");
 
-                        GuiBlock droppedIcon = GuiBlock.Create(type,workspaceConnector,new Point2D(cursorPoint.getX()-32, cursorPoint.getY()-32));
+                        GuiBlock droppedIcon = GuiBlock.Create(type,workspaceConnector,new Point2D.Double(cursorPoint.getX()-32, cursorPoint.getY()-32));
 
                         workspaceConnector.DrawWorkspace();
 					}
@@ -235,103 +238,41 @@ public class RootLayout extends AnchorPane{
 	}
 
 	@FXML
-	public void NewTemplate(ActionEvent actionEvent) {
-		//TODO new
+	public void NewWorkspace(ActionEvent actionEvent) {
+		workspaceConnector.NewWorkspace();
+        workspaceConnector.DrawWorkspace();
 	}
 
 	@FXML
-	public void LoadTemplate(ActionEvent actionEvent) {
-		//TODO load
+	public void LoadWorkspace(ActionEvent actionEvent) throws IOException, ClassNotFoundException {
+		FileChooser fileChooser = new FileChooser();
+        FileChooser.ExtensionFilter extensionFilter=new FileChooser.ExtensionFilter("workspace","*.workspace");
+        fileChooser.getExtensionFilters().add(extensionFilter);
+        fileChooser.setTitle("Open Workspace File");
+		Window stage = getScene().getWindow();
+		File file = fileChooser.showOpenDialog(stage);
+
+		if (file==null)
+		    return;
+
+		workspaceConnector.LoadWorkspace(file);
+		workspaceConnector.DrawWorkspace();
 	}
 
 	@FXML
-	public void SaveTemplate(ActionEvent actionEvent) {
-		//TODO save
+	public void SaveWorkspace(ActionEvent actionEvent) throws IOException {
+        FileChooser fileChooser = new FileChooser();
+        FileChooser.ExtensionFilter extensionFilter=new FileChooser.ExtensionFilter("workspace","*.workspace");
+        fileChooser.getExtensionFilters().add(extensionFilter);
+        fileChooser.setTitle("Save Workspace File");
+
+        Window stage = getScene().getWindow();
+        File file = fileChooser.showSaveDialog(stage);
+
+        if (file==null)
+            return;
+
+		workspaceConnector.SaveWorkspace(file);
 	}
-	/*
-	public void buildSplitPaneDragHandlers() {
-		
-		//drag detection for widget in the left-hand scroll pane to create a node in the right pane 
-		mWidgetDragDetected = new EventHandler <MouseEvent> () {
 
-			@Override
-			public void handle(MouseEvent event) {
-
-				fs_right_pane.setOnDragDropped(null);
-				fs_root.setOnDragOver(null);
-				fs_right_pane.setOnDragOver(null);
-				
-				fs_right_pane.setOnDragDropped(mRightPaneDragDropped);
-				fs_root.setOnDragOver(mRootDragOver);
-				
-                //begin drag ops
-
-                mDragObject = ((IFileSystemObject) (event.getSource())).getDragObject();
-                
-                if (!fs_root.getChildren().contains((Node)mDragObject))
-                	fs_root.getChildren().add((Node)mDragObject);
-                
-                mDragObject.relocateToPoint(new Point2D (event.getSceneX(), event.getSceneY()));
-                
-                ClipboardContent content = new ClipboardContent();
-                content.putString(mDragObject.getFileSystemType().toString());
-
-                mDragObject.startDragAndDrop (TransferMode.ANY).setContent(content);
-                mDragObject.setVisible(true);
-                
-                event.consume();					
-			}					
-		};
-		
-		//drag over transition to move widget form left pane to right pane
-		mRootDragOver = new EventHandler <DragEvent>() {
-
-			@Override
-			public void handle(DragEvent event) {
-				
-				Point2D p = fs_right_pane.sceneToLocal(event.getSceneX(), event.getSceneY());
-
-				if (!fs_right_pane.boundsInLocalProperty().get().contains(p)) {
-					mDragObject.relocateToPoint(new Point2D(event.getX(), event.getY()));
-					return;
-				}
-
-				fs_root.removeEventHandler(DragEvent.DRAG_OVER, this);
-				fs_right_pane.setOnDragOver(mRightPaneDragOver);
-				event.consume();
-
-			}
-		};
-		
-		//drag over in the right pane
-		mRightPaneDragOver = new EventHandler <DragEvent> () {
-
-			@Override
-			public void handle(DragEvent event) {
-
-				event.acceptTransferModes(TransferMode.ANY);
-				mDragObject.relocateToPoint(mDragObject.getParent().sceneToLocal(new Point2D(event.getSceneX(), event.getSceneY())));
-
-				event.consume();
-			}
-		}
-		
-		//drop action in the right pane to create a new node
-		mRightPaneDragDropped = new EventHandler <DragEvent> () {
-
-			@Override
-			public void handle(DragEvent event) {
-				Point2D p = fs_right_pane.sceneToLocal(new Point2D (event.getSceneX(), event.getSceneY()));	
-				
-				self.addFileSystemNode(mDragObject.getFileSystemType(), p);
-				event.setDropCompleted(true);
-
-				fs_right_pane.setOnDragOver(null);
-				fs_right_pane.setOnDragDropped(null);
-				fs_root.setOnDragOver(null);
-				
-				event.consume();
-			}
-		};		
-	}		*/
 }

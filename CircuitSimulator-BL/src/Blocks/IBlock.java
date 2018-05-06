@@ -5,8 +5,8 @@ import Common.ITimeTickConsumer;
 import Common.IValidatable;
 import Ports.IInputPort;
 import Ports.IOutputPort;
-import javafx.geometry.Point2D;
 
+import java.awt.geom.Point2D;
 import java.util.List;
 
 public interface IBlock extends IValidatable,IResetable,ITimeTickConsumer {
@@ -15,7 +15,7 @@ public interface IBlock extends IValidatable,IResetable,ITimeTickConsumer {
     List<IInputPort> GetInputPorts();
     List<IOutputPort> GetOutputPorts();
 
-    Point2D getPosition();
+    java.awt.geom.Point2D getPosition();
 
     void setPosition(Point2D p);
 

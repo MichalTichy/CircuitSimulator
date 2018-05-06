@@ -3,12 +3,13 @@ package Workspace;
 import Blocks.IBlock;
 import Common.ITimeTickConsumer;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class Workspace implements IWorkspace {
+public class Workspace implements IWorkspace, Serializable {
     private Collection<ITimeTickConsumer> subscribers = new ArrayList<>();
     private Collection<IBlock> blocks = new ArrayList<>();
     private Timer timer;

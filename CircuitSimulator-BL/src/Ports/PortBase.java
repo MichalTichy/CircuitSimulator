@@ -4,7 +4,9 @@ import Common.IResetable;
 import Common.IValidatable;
 import com.sun.org.apache.bcel.internal.generic.IF_ACMPEQ;
 
-public abstract class PortBase implements IPort {
+import java.io.Serializable;
+
+public abstract class PortBase implements IPort,Serializable {
     protected IPort connectedTo;
 
     @Override
