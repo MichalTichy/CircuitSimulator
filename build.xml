@@ -286,6 +286,15 @@
   
   <target name="build.modules" depends="init, clean, compile.module.circuitsimulator, compile.module.circuitsimulator-bl, compile.module.circuitsimulator-app" description="build all modules"/>
 
+  <target name="doc" description="generate documentation">
+    <delete dir="${module.circuitsimulator-app.basedir}/doc" />
+    <mkdir dir="${module.circuitsimulator-app.basedir}/doc" />
+    <javadoc destdir="${module.circuitsimulator-app.basedir}/doc">
+      <fileset dir="${module.circuitsimulator-app.basedir}/CircuitSimulator-APP/src" />
+        <fileset dir="${module.circuitsimulator-app.basedir}/CircuitSimulator-BL/src" />
+    </javadoc>
+  </target>
+
   <target name="compile" depends="build.modules" description="build all">
     <jar destfile="${module.circuitsimulator-app.basedir}/dest-client/ija-client.jar"
          basedir="${circuitsimulator-app.output.dir}"
@@ -296,7 +305,7 @@
     </jar>
   </target>
 
-  <target name="run" depends="compile" description="run">
+  <target name="run" depends="compile, doc" description="run">
 
     <java jar="${module.circuitsimulator-app.basedir}/dest-client/ija-client.jar" fork="true"/>
   </target>
