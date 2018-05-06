@@ -10,7 +10,7 @@
          <children>
              <MenuBar>
                  <menus>
-                     <Menu mnemonicParsing="false" text="File">
+                     <Menu fx:id="FileMenu" mnemonicParsing="false" text="File">
                          <items>
                              <MenuItem mnemonicParsing="false" onAction="#NewWorkspace" text="New"/>
                              <MenuItem mnemonicParsing="false" onAction="#LoadWorkspace" text="Load"/>
@@ -25,18 +25,18 @@
                      <Button disable="true" maxHeight="-Infinity" maxWidth="1.7976931348623157E308"
                              minHeight="-Infinity" minWidth="0.0" mnemonicParsing="false" prefHeight="25.0"
                              HBox.hgrow="ALWAYS"/>
-                     <Button layoutX="268.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-                             minWidth="-Infinity" mnemonicParsing="false" onAction="#StepClicked" prefHeight="25.0"
-                             prefWidth="85.0" text="Step"/>
-                     <Button layoutX="353.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-                             minWidth="-Infinity" mnemonicParsing="false" onAction="#StartStopClicked" prefHeight="25.0"
-                             prefWidth="85.0" text="Start/Stop"/>
+                     <Button fx:id="StepButton" layoutX="268.0" maxHeight="-Infinity" maxWidth="-Infinity"
+                             minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#StepClicked"
+                             prefHeight="25.0" prefWidth="85.0" text="Step"/>
+                     <Button fx:id="StartStopButton" layoutX="353.0" maxHeight="-Infinity" maxWidth="-Infinity"
+                             minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false"
+                             onAction="#StartStopClicked" prefHeight="25.0" prefWidth="85.0" text="Start/Stop"/>
                      <TextField fx:id="msPerTick" layoutX="438.0" maxHeight="-Infinity" maxWidth="-Infinity"
                                 minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="85.0"
                                 promptText="Speed [ms]"/>
-                     <Button layoutX="523.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-                             minWidth="-Infinity" mnemonicParsing="false" onAction="#ResetClicked" prefHeight="25.0"
-                             prefWidth="85.0" text="Reset"/>
+                     <Button fx:id="ResetButton" layoutX="523.0" maxHeight="-Infinity" maxWidth="-Infinity"
+                             minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#ResetClicked"
+                             prefHeight="25.0" prefWidth="85.0" text="Reset"/>
                      <Button disable="true" layoutX="607.0" maxHeight="-Infinity" maxWidth="1.7976931348623157E308"
                              minHeight="-Infinity" minWidth="0.0" mnemonicParsing="false" prefHeight="25.0"
                              HBox.hgrow="ALWAYS"/>
